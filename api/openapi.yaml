@@ -1,0 +1,538 @@
+openapi: 3.1.0
+info:
+  title: FastAPI
+  version: 0.1.0
+servers:
+- url: /
+paths:
+  /health:
+    get:
+      description: Health check.
+      operationId: health_health_get
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      summary: Health
+  /version:
+    get:
+      description: Fetch the Harmony Speech Engine version.
+      operationId: show_version_version_get
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Show Version
+  /v1/audio/speech:
+    post:
+      operationId: create_speech_v1_audio_speech_post
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextToSpeechRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Create Speech
+  /v1/audio/speech/models:
+    get:
+      operationId: show_available_speech_models_v1_audio_speech_models_get
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Show Available Speech Models
+  /v1/embed/speaker:
+    post:
+      operationId: create_embedding_v1_embed_speaker_post
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbedSpeakerRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Create Embedding
+  /v1/embed/models:
+    get:
+      operationId: show_available_embedding_models_v1_embed_models_get
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Show Available Embedding Models
+  /v1/audio/transcriptions:
+    post:
+      operationId: create_transcription_v1_audio_transcriptions_post
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpeechTranscribeRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Create Transcription
+  /v1/audio/transcriptions/models:
+    get:
+      operationId: show_available_transcription_models_v1_audio_transcriptions_models_get
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Show Available Transcription Models
+  /v1/voice/convert:
+    post:
+      operationId: convert_voice_v1_voice_convert_post
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoiceConversionRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Convert Voice
+  /v1/voice/convert/models:
+    get:
+      operationId: show_available_voice_conversion_models_v1_voice_convert_models_get
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Show Available Voice Conversion Models
+components:
+  schemas:
+    AudioOutputOptions:
+      example:
+        sample_rate: 2
+        stream: true
+        format: format
+      properties:
+        format:
+          nullable: true
+          type: string
+        sample_rate:
+          nullable: true
+          type: integer
+        stream:
+          nullable: true
+          type: boolean
+      title: AudioOutputOptions
+    EmbedSpeakerRequest:
+      description: |-
+        EmbedSpeakerRequest
+        Used to create a Speaker Embedding form a provided audio, which can later be re-used for Text-to-Speech or
+        Voice Conversion functionality.
+        Please refer to the documentation whether an embedding is compatible between different models.
+      example:
+        input_audio: input_audio
+        model: ""
+      properties:
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        input_audio:
+          description: "Binary audio data to be processed, encoded in base64"
+          title: Input Audio
+          type: string
+      title: EmbedSpeakerRequest
+    GenerationOptions:
+      example:
+        seed: 0
+        style: 6
+        pitch: 5.962133916683182
+        speed: 1.4658129805029452
+        energy: 5.637376656633329
+      properties:
+        seed:
+          nullable: true
+          type: integer
+        style:
+          nullable: true
+          type: integer
+        speed:
+          nullable: true
+          type: number
+        pitch:
+          nullable: true
+          type: number
+        energy:
+          nullable: true
+          type: number
+      title: GenerationOptions
+    HTTPValidationError:
+      example:
+        detail:
+        - msg: msg
+          loc:
+          - ValidationError_loc_inner
+          - ValidationError_loc_inner
+          type: type
+        - msg: msg
+          loc:
+          - ValidationError_loc_inner
+          - ValidationError_loc_inner
+          type: type
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+      title: HTTPValidationError
+    SpeechTranscribeRequest:
+      description: |-
+        SpeechTranscribeRequest
+        Used to apply ASR on a provided audio file
+        Depending on model selection, the caller may need to provide additional params.
+        Based on OpenAI STT API; extended for Harmony Speech Engine features.
+      example:
+        get_timestamps: true
+        get_language: true
+        input_audio: input_audio
+        model: ""
+      properties:
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        input_audio:
+          nullable: true
+          type: string
+        get_language:
+          nullable: true
+          type: boolean
+        get_timestamps:
+          nullable: true
+          type: boolean
+      title: SpeechTranscribeRequest
+    TextToSpeechRequest:
+      description: |-
+        TextToSpeechRequest
+        Used to trigger a speech generation for the provided text input using the specified model.
+        Depending on model selection, the caller may need to provide additional params.
+        Based on OpenAI TTS API; extended for Harmony Speech Engine features.
+      example:
+        voice: voice
+        input: ""
+        input_vad_data: input_vad_data
+        output_options:
+          sample_rate: 2
+          stream: true
+          format: format
+        input_audio: input_audio
+        input_vad_mode: input_vad_mode
+        generation_options:
+          seed: 0
+          style: 6
+          pitch: 5.962133916683182
+          speed: 1.4658129805029452
+          energy: 5.637376656633329
+        model: ""
+        language: language
+        post_generation_filters:
+        - target_embedding: target_embedding
+          output_options:
+            sample_rate: 2
+            stream: true
+            format: format
+          source_audio: source_audio
+          generation_options:
+            seed: 0
+            style: 6
+            pitch: 5.962133916683182
+            speed: 1.4658129805029452
+            energy: 5.637376656633329
+          model: ""
+          target_audio: target_audio
+        - target_embedding: target_embedding
+          output_options:
+            sample_rate: 2
+            stream: true
+            format: format
+          source_audio: source_audio
+          generation_options:
+            seed: 0
+            style: 6
+            pitch: 5.962133916683182
+            speed: 1.4658129805029452
+            energy: 5.637376656633329
+          model: ""
+          target_audio: target_audio
+        input_embedding: input_embedding
+      properties:
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        input:
+          default: ""
+          description: the text to synthesize
+          title: Input
+          type: string
+        language:
+          description: language to synthesize. Only if the model supports language
+            IDs. Please refer to the model's documentation for which values are availiable.
+          title: Language
+          type: string
+        voice:
+          nullable: true
+          type: string
+        input_audio:
+          nullable: true
+          type: string
+        input_vad_mode:
+          nullable: true
+          type: string
+        input_vad_data:
+          nullable: true
+          type: string
+        input_embedding:
+          nullable: true
+          type: string
+        generation_options:
+          $ref: '#/components/schemas/GenerationOptions'
+        output_options:
+          $ref: '#/components/schemas/AudioOutputOptions'
+        post_generation_filters:
+          items:
+            $ref: '#/components/schemas/VoiceConversionRequest'
+          nullable: true
+      title: TextToSpeechRequest
+    ValidationError:
+      example:
+        msg: msg
+        loc:
+        - ValidationError_loc_inner
+        - ValidationError_loc_inner
+        type: type
+      properties:
+        loc:
+          items:
+            $ref: '#/components/schemas/ValidationError_loc_inner'
+          type: array
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    VoiceConversionRequest:
+      description: |-
+        VoiceConversionRequest
+        Used to convert the tone or nature of a voice in a specific way.
+        Depending on model selection, the caller may need to provide additional params.
+      example:
+        target_embedding: target_embedding
+        output_options:
+          sample_rate: 2
+          stream: true
+          format: format
+        source_audio: source_audio
+        generation_options:
+          seed: 0
+          style: 6
+          pitch: 5.962133916683182
+          speed: 1.4658129805029452
+          energy: 5.637376656633329
+        model: ""
+        target_audio: target_audio
+      properties:
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        source_audio:
+          description: "Binary audio data to be processed, encoded in base64"
+          title: Source Audio
+          type: string
+        target_audio:
+          nullable: true
+          type: string
+        target_embedding:
+          nullable: true
+          type: string
+        generation_options:
+          $ref: '#/components/schemas/GenerationOptions'
+        output_options:
+          $ref: '#/components/schemas/AudioOutputOptions'
+      title: VoiceConversionRequest
+    ValidationError_loc_inner:
+      anyOf:
+      - type: string
+      - type: integer
