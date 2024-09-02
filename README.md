@@ -1,4 +1,4 @@
-# Go API client for openapi
+# Go API client for Harmony Speech Engine
 
 Simple Golang Client for [Harmony Speech Engine](https://github.com/harmony-ai-solutions/harmony-speech-engine).
 
@@ -99,13 +99,19 @@ Class | Method | HTTP request | Description
 
  - [AudioOutputOptions](docs/AudioOutputOptions.md)
  - [EmbedSpeakerRequest](docs/EmbedSpeakerRequest.md)
+ - [EmbedSpeakerResponse](docs/EmbedSpeakerResponse.md)
  - [GenerationOptions](docs/GenerationOptions.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [ModelCard](docs/ModelCard.md)
+ - [ModelList](docs/ModelList.md)
+ - [SpeechToTextResponse](docs/SpeechToTextResponse.md)
  - [SpeechTranscribeRequest](docs/SpeechTranscribeRequest.md)
  - [TextToSpeechRequest](docs/TextToSpeechRequest.md)
+ - [TextToSpeechResponse](docs/TextToSpeechResponse.md)
  - [ValidationError](docs/ValidationError.md)
  - [ValidationErrorLocInner](docs/ValidationErrorLocInner.md)
  - [VoiceConversionRequest](docs/VoiceConversionRequest.md)
+ - [VoiceConversionResponse](docs/VoiceConversionResponse.md)
 
 
 ## Documentation For Authorization

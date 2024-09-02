@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
-	openapiclient "github.com/harmony-ai-solutions/harmony-speech-engine-client-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
+	openapiclient "github.com/harmony-ai-solutions/harmony-speech-engine-client-go"
 )
 
 func Test_openapi_DefaultAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService ConvertVoiceV1VoiceConvertPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.ConvertVoiceV1VoiceConvertPost(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService CreateEmbeddingV1EmbedSpeakerPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.CreateEmbeddingV1EmbedSpeakerPost(context.Background()).Execute()
 
@@ -48,7 +48,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService CreateSpeechV1AudioSpeechPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.CreateSpeechV1AudioSpeechPost(context.Background()).Execute()
 
@@ -60,7 +60,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService CreateTranscriptionV1AudioTranscriptionsPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.CreateTranscriptionV1AudioTranscriptionsPost(context.Background()).Execute()
 
@@ -72,7 +72,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService HealthHealthGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.HealthHealthGet(context.Background()).Execute()
 
@@ -84,7 +84,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService ShowAvailableEmbeddingModelsV1EmbedModelsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.ShowAvailableEmbeddingModelsV1EmbedModelsGet(context.Background()).Execute()
 
@@ -96,7 +96,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService ShowAvailableSpeechModelsV1AudioSpeechModelsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.ShowAvailableSpeechModelsV1AudioSpeechModelsGet(context.Background()).Execute()
 
@@ -108,7 +108,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet(context.Background()).Execute()
 
@@ -120,7 +120,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet(context.Background()).Execute()
 
@@ -132,7 +132,7 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 
 	t.Run("Test DefaultAPIService ShowVersionVersionGet", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.DefaultAPI.ShowVersionVersionGet(context.Background()).Execute()
 

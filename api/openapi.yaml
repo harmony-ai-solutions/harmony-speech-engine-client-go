@@ -1,19 +1,25 @@
 openapi: 3.1.0
 info:
-  title: FastAPI
+  description: API for the Harmony Speech Engine.
+  title: Harmony Speech Engine API
   version: 0.1.0
+  x-go-client-name: HarmonySpeechAPI
+  x-go-package: harmonyspeech
 servers:
 - url: /
 paths:
   /health:
     get:
-      description: Health check.
+      description: Health check endpoint to verify the status of all engine serving
+        objects.
       operationId: health_health_get
       responses:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                title: Response Health Health Get
+                type: object
           description: Successful Response
       summary: Health
   /version:
@@ -33,7 +39,9 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                title: Response Show Version Version Get
+                type: object
           description: Successful Response
         "422":
           content:
@@ -44,6 +52,7 @@ paths:
       summary: Show Version
   /v1/audio/speech:
     post:
+      description: Generate speech Audio from text.
       operationId: create_speech_v1_audio_speech_post
       parameters:
       - explode: false
@@ -64,7 +73,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/TextToSpeechResponse'
           description: Successful Response
         "422":
           content:
@@ -75,6 +85,7 @@ paths:
       summary: Create Speech
   /v1/audio/speech/models:
     get:
+      description: Show available speech models.
       operationId: show_available_speech_models_v1_audio_speech_models_get
       parameters:
       - explode: false
@@ -89,7 +100,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ModelList'
           description: Successful Response
         "422":
           content:
@@ -100,6 +112,7 @@ paths:
       summary: Show Available Speech Models
   /v1/embed/speaker:
     post:
+      description: Create a speaker embedding.
       operationId: create_embedding_v1_embed_speaker_post
       parameters:
       - explode: false
@@ -120,7 +133,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/EmbedSpeakerResponse'
           description: Successful Response
         "422":
           content:
@@ -131,6 +145,7 @@ paths:
       summary: Create Embedding
   /v1/embed/models:
     get:
+      description: Show available embedding models.
       operationId: show_available_embedding_models_v1_embed_models_get
       parameters:
       - explode: false
@@ -145,7 +160,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ModelList'
           description: Successful Response
         "422":
           content:
@@ -156,6 +172,7 @@ paths:
       summary: Show Available Embedding Models
   /v1/audio/transcriptions:
     post:
+      description: Create a transcription from audio.
       operationId: create_transcription_v1_audio_transcriptions_post
       parameters:
       - explode: false
@@ -176,7 +193,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/SpeechToTextResponse'
           description: Successful Response
         "422":
           content:
@@ -187,6 +205,7 @@ paths:
       summary: Create Transcription
   /v1/audio/transcriptions/models:
     get:
+      description: Show available transcription models.
       operationId: show_available_transcription_models_v1_audio_transcriptions_models_get
       parameters:
       - explode: false
@@ -201,7 +220,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ModelList'
           description: Successful Response
         "422":
           content:
@@ -212,6 +232,8 @@ paths:
       summary: Show Available Transcription Models
   /v1/voice/convert:
     post:
+      description: Convert the voice in an audio file or stream to a desired target
+        voice.
       operationId: convert_voice_v1_voice_convert_post
       parameters:
       - explode: false
@@ -232,7 +254,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/VoiceConversionResponse'
           description: Successful Response
         "422":
           content:
@@ -243,6 +266,7 @@ paths:
       summary: Convert Voice
   /v1/voice/convert/models:
     get:
+      description: Show available voice conversion models.
       operationId: show_available_voice_conversion_models_v1_voice_convert_models_get
       parameters:
       - explode: false
@@ -304,6 +328,33 @@ components:
           title: Input Audio
           type: string
       title: EmbedSpeakerRequest
+    EmbedSpeakerResponse:
+      description: |-
+        EmbedSpeakerResult
+        Result Speaker Embedding
+      example:
+        data: data
+        created: 0
+        model: ""
+        id: id
+      properties:
+        id:
+          title: Id
+          type: string
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        created:
+          title: Created
+          type: integer
+        data:
+          description: "Speaker embedding data for the audio provided in the initial\
+            \ request, encoded in base64"
+          title: Data
+          type: string
+      title: EmbedSpeakerResponse
     GenerationOptions:
       example:
         seed: 0
@@ -347,6 +398,102 @@ components:
             $ref: '#/components/schemas/ValidationError'
           type: array
       title: HTTPValidationError
+    ModelCard:
+      example:
+        parent: parent
+        created: 0
+        root: root
+        owned_by: harmony-ai-solutions
+        id: id
+        object: model
+      properties:
+        id:
+          title: Id
+          type: string
+        object:
+          default: model
+          title: Object
+          type: string
+        created:
+          title: Created
+          type: integer
+        owned_by:
+          default: harmony-ai-solutions
+          title: Owned By
+          type: string
+        root:
+          nullable: true
+          type: string
+        parent:
+          nullable: true
+          type: string
+      required:
+      - id
+      title: ModelCard
+    ModelList:
+      example:
+        data:
+        - parent: parent
+          created: 0
+          root: root
+          owned_by: harmony-ai-solutions
+          id: id
+          object: model
+        - parent: parent
+          created: 0
+          root: root
+          owned_by: harmony-ai-solutions
+          id: id
+          object: model
+        object: list
+      properties:
+        object:
+          default: list
+          title: Object
+          type: string
+        data:
+          items:
+            $ref: '#/components/schemas/ModelCard'
+          type: array
+      title: ModelList
+    SpeechToTextResponse:
+      description: |-
+        SpeechToTextResponse
+        Result text determined from audio and optional language tag
+      example:
+        created: 0
+        timestamps:
+        - "{}"
+        - "{}"
+        model: ""
+        language: language
+        id: id
+        text: ""
+      properties:
+        id:
+          title: Id
+          type: string
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        created:
+          title: Created
+          type: integer
+        text:
+          default: ""
+          description: text retrieved from the input audio
+          title: Text
+          type: string
+        language:
+          nullable: true
+          type: string
+        timestamps:
+          items:
+            type: object
+          nullable: true
+      title: SpeechToTextResponse
     SpeechTranscribeRequest:
       description: |-
         SpeechTranscribeRequest
@@ -468,6 +615,32 @@ components:
             $ref: '#/components/schemas/VoiceConversionRequest'
           nullable: true
       title: TextToSpeechRequest
+    TextToSpeechResponse:
+      description: |-
+        TextToSpeechResponse
+        Extends AudioDataResponse with a request specific ID
+      example:
+        data: data
+        created: 0
+        model: ""
+        id: id
+      properties:
+        id:
+          title: Id
+          type: string
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        created:
+          title: Created
+          type: integer
+        data:
+          description: Audio Bytes in requested format of the initial request
+          title: Data
+          type: string
+      title: TextToSpeechResponse
     ValidationError:
       example:
         msg: msg
@@ -532,6 +705,32 @@ components:
         output_options:
           $ref: '#/components/schemas/AudioOutputOptions'
       title: VoiceConversionRequest
+    VoiceConversionResponse:
+      description: |-
+        VoiceConversionResponse
+        Extends AudioDataResponse with a request specific ID
+      example:
+        data: data
+        created: 0
+        model: ""
+        id: id
+      properties:
+        id:
+          title: Id
+          type: string
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        created:
+          title: Created
+          type: integer
+        data:
+          description: Audio Bytes in requested format of the initial request
+          title: Data
+          type: string
+      title: VoiceConversionResponse
     ValidationError_loc_inner:
       anyOf:
       - type: string

@@ -19,9 +19,11 @@ Method | HTTP request | Description
 
 ## ConvertVoiceV1VoiceConvertPost
 
-> interface{} ConvertVoiceV1VoiceConvertPost(ctx).VoiceConversionRequest(voiceConversionRequest).XApiKey(xApiKey).Execute()
+> VoiceConversionResponse ConvertVoiceV1VoiceConvertPost(ctx).VoiceConversionRequest(voiceConversionRequest).XApiKey(xApiKey).Execute()
 
 Convert Voice
+
+
 
 ### Example
 
@@ -46,7 +48,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ConvertVoiceV1VoiceConvertPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ConvertVoiceV1VoiceConvertPost`: interface{}
+	// response from `ConvertVoiceV1VoiceConvertPost`: VoiceConversionResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ConvertVoiceV1VoiceConvertPost`: %v\n", resp)
 }
 ```
@@ -67,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**VoiceConversionResponse**](VoiceConversionResponse.md)
 
 ### Authorization
 
@@ -85,9 +87,11 @@ No authorization required
 
 ## CreateEmbeddingV1EmbedSpeakerPost
 
-> interface{} CreateEmbeddingV1EmbedSpeakerPost(ctx).EmbedSpeakerRequest(embedSpeakerRequest).XApiKey(xApiKey).Execute()
+> EmbedSpeakerResponse CreateEmbeddingV1EmbedSpeakerPost(ctx).EmbedSpeakerRequest(embedSpeakerRequest).XApiKey(xApiKey).Execute()
 
 Create Embedding
+
+
 
 ### Example
 
@@ -112,7 +116,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateEmbeddingV1EmbedSpeakerPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateEmbeddingV1EmbedSpeakerPost`: interface{}
+	// response from `CreateEmbeddingV1EmbedSpeakerPost`: EmbedSpeakerResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateEmbeddingV1EmbedSpeakerPost`: %v\n", resp)
 }
 ```
@@ -133,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**EmbedSpeakerResponse**](EmbedSpeakerResponse.md)
 
 ### Authorization
 
@@ -151,9 +155,11 @@ No authorization required
 
 ## CreateSpeechV1AudioSpeechPost
 
-> interface{} CreateSpeechV1AudioSpeechPost(ctx).TextToSpeechRequest(textToSpeechRequest).XApiKey(xApiKey).Execute()
+> TextToSpeechResponse CreateSpeechV1AudioSpeechPost(ctx).TextToSpeechRequest(textToSpeechRequest).XApiKey(xApiKey).Execute()
 
 Create Speech
+
+
 
 ### Example
 
@@ -178,7 +184,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateSpeechV1AudioSpeechPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateSpeechV1AudioSpeechPost`: interface{}
+	// response from `CreateSpeechV1AudioSpeechPost`: TextToSpeechResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateSpeechV1AudioSpeechPost`: %v\n", resp)
 }
 ```
@@ -199,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**TextToSpeechResponse**](TextToSpeechResponse.md)
 
 ### Authorization
 
@@ -217,9 +223,11 @@ No authorization required
 
 ## CreateTranscriptionV1AudioTranscriptionsPost
 
-> interface{} CreateTranscriptionV1AudioTranscriptionsPost(ctx).SpeechTranscribeRequest(speechTranscribeRequest).XApiKey(xApiKey).Execute()
+> SpeechToTextResponse CreateTranscriptionV1AudioTranscriptionsPost(ctx).SpeechTranscribeRequest(speechTranscribeRequest).XApiKey(xApiKey).Execute()
 
 Create Transcription
+
+
 
 ### Example
 
@@ -244,7 +252,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateTranscriptionV1AudioTranscriptionsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateTranscriptionV1AudioTranscriptionsPost`: interface{}
+	// response from `CreateTranscriptionV1AudioTranscriptionsPost`: SpeechToTextResponse
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateTranscriptionV1AudioTranscriptionsPost`: %v\n", resp)
 }
 ```
@@ -265,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**SpeechToTextResponse**](SpeechToTextResponse.md)
 
 ### Authorization
 
@@ -283,7 +291,7 @@ No authorization required
 
 ## HealthHealthGet
 
-> interface{} HealthHealthGet(ctx).Execute()
+> map[string]interface{} HealthHealthGet(ctx).Execute()
 
 Health
 
@@ -310,7 +318,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.HealthHealthGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `HealthHealthGet`: interface{}
+	// response from `HealthHealthGet`: map[string]interface{}
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.HealthHealthGet`: %v\n", resp)
 }
 ```
@@ -326,7 +334,7 @@ Other parameters are passed through a pointer to a apiHealthHealthGetRequest str
 
 ### Return type
 
-**interface{}**
+**map[string]interface{}**
 
 ### Authorization
 
@@ -344,9 +352,11 @@ No authorization required
 
 ## ShowAvailableEmbeddingModelsV1EmbedModelsGet
 
-> interface{} ShowAvailableEmbeddingModelsV1EmbedModelsGet(ctx).XApiKey(xApiKey).Execute()
+> ModelList ShowAvailableEmbeddingModelsV1EmbedModelsGet(ctx).XApiKey(xApiKey).Execute()
 
 Show Available Embedding Models
+
+
 
 ### Example
 
@@ -370,7 +380,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowAvailableEmbeddingModelsV1EmbedModelsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ShowAvailableEmbeddingModelsV1EmbedModelsGet`: interface{}
+	// response from `ShowAvailableEmbeddingModelsV1EmbedModelsGet`: ModelList
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ShowAvailableEmbeddingModelsV1EmbedModelsGet`: %v\n", resp)
 }
 ```
@@ -390,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**ModelList**](ModelList.md)
 
 ### Authorization
 
@@ -408,9 +418,11 @@ No authorization required
 
 ## ShowAvailableSpeechModelsV1AudioSpeechModelsGet
 
-> interface{} ShowAvailableSpeechModelsV1AudioSpeechModelsGet(ctx).XApiKey(xApiKey).Execute()
+> ModelList ShowAvailableSpeechModelsV1AudioSpeechModelsGet(ctx).XApiKey(xApiKey).Execute()
 
 Show Available Speech Models
+
+
 
 ### Example
 
@@ -434,7 +446,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowAvailableSpeechModelsV1AudioSpeechModelsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ShowAvailableSpeechModelsV1AudioSpeechModelsGet`: interface{}
+	// response from `ShowAvailableSpeechModelsV1AudioSpeechModelsGet`: ModelList
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ShowAvailableSpeechModelsV1AudioSpeechModelsGet`: %v\n", resp)
 }
 ```
@@ -454,7 +466,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**ModelList**](ModelList.md)
 
 ### Authorization
 
@@ -472,9 +484,11 @@ No authorization required
 
 ## ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet
 
-> interface{} ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet(ctx).XApiKey(xApiKey).Execute()
+> ModelList ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet(ctx).XApiKey(xApiKey).Execute()
 
 Show Available Transcription Models
+
+
 
 ### Example
 
@@ -498,7 +512,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet`: interface{}
+	// response from `ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet`: ModelList
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet`: %v\n", resp)
 }
 ```
@@ -518,7 +532,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+[**ModelList**](ModelList.md)
 
 ### Authorization
 
@@ -539,6 +553,8 @@ No authorization required
 > interface{} ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet(ctx).XApiKey(xApiKey).Execute()
 
 Show Available Voice Conversion Models
+
+
 
 ### Example
 
@@ -600,7 +616,7 @@ No authorization required
 
 ## ShowVersionVersionGet
 
-> interface{} ShowVersionVersionGet(ctx).XApiKey(xApiKey).Execute()
+> map[string]interface{} ShowVersionVersionGet(ctx).XApiKey(xApiKey).Execute()
 
 Show Version
 
@@ -628,7 +644,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowVersionVersionGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ShowVersionVersionGet`: interface{}
+	// response from `ShowVersionVersionGet`: map[string]interface{}
 	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ShowVersionVersionGet`: %v\n", resp)
 }
 ```
@@ -648,7 +664,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**interface{}**
+**map[string]interface{}**
 
 ### Authorization
 
