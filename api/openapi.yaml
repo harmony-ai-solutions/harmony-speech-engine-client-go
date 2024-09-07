@@ -512,7 +512,9 @@ components:
           title: Model
           type: string
         input_audio:
-          nullable: true
+          description: "Binary audio data of the reference speaker for synthesizing\
+            \ the text, encoded in base64"
+          title: Input Audio
           type: string
         get_language:
           nullable: true

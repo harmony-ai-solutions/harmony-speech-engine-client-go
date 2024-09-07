@@ -21,7 +21,8 @@ var _ MappedNullable = &SpeechTranscribeRequest{}
 type SpeechTranscribeRequest struct {
 	// the name of the model
 	Model *string `json:"model,omitempty"`
-	InputAudio NullableString `json:"input_audio,omitempty"`
+	// Binary audio data of the reference speaker for synthesizing the text, encoded in base64
+	InputAudio *string `json:"input_audio,omitempty"`
 	GetLanguage NullableBool `json:"get_language,omitempty"`
 	GetTimestamps NullableBool `json:"get_timestamps,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -82,46 +83,36 @@ func (o *SpeechTranscribeRequest) SetModel(v string) {
 	o.Model = &v
 }
 
-// GetInputAudio returns the InputAudio field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetInputAudio returns the InputAudio field value if set, zero value otherwise.
 func (o *SpeechTranscribeRequest) GetInputAudio() string {
-	if o == nil || IsNil(o.InputAudio.Get()) {
+	if o == nil || IsNil(o.InputAudio) {
 		var ret string
 		return ret
 	}
-	return *o.InputAudio.Get()
+	return *o.InputAudio
 }
 
 // GetInputAudioOk returns a tuple with the InputAudio field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SpeechTranscribeRequest) GetInputAudioOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.InputAudio) {
 		return nil, false
 	}
-	return o.InputAudio.Get(), o.InputAudio.IsSet()
+	return o.InputAudio, true
 }
 
 // HasInputAudio returns a boolean if a field has been set.
 func (o *SpeechTranscribeRequest) HasInputAudio() bool {
-	if o != nil && o.InputAudio.IsSet() {
+	if o != nil && !IsNil(o.InputAudio) {
 		return true
 	}
 
 	return false
 }
 
-// SetInputAudio gets a reference to the given NullableString and assigns it to the InputAudio field.
+// SetInputAudio gets a reference to the given string and assigns it to the InputAudio field.
 func (o *SpeechTranscribeRequest) SetInputAudio(v string) {
-	o.InputAudio.Set(&v)
-}
-// SetInputAudioNil sets the value for InputAudio to be an explicit nil
-func (o *SpeechTranscribeRequest) SetInputAudioNil() {
-	o.InputAudio.Set(nil)
-}
-
-// UnsetInputAudio ensures that no value is present for InputAudio, not even an explicit nil
-func (o *SpeechTranscribeRequest) UnsetInputAudio() {
-	o.InputAudio.Unset()
+	o.InputAudio = &v
 }
 
 // GetGetLanguage returns the GetLanguage field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -221,8 +212,8 @@ func (o SpeechTranscribeRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Model) {
 		toSerialize["model"] = o.Model
 	}
-	if o.InputAudio.IsSet() {
-		toSerialize["input_audio"] = o.InputAudio.Get()
+	if !IsNil(o.InputAudio) {
+		toSerialize["input_audio"] = o.InputAudio
 	}
 	if o.GetLanguage.IsSet() {
 		toSerialize["get_language"] = o.GetLanguage.Get()

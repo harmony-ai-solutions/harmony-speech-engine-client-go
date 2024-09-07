@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Model** | Pointer to **string** | the name of the model | [optional] [default to ""]
-**InputAudio** | Pointer to **NullableString** |  | [optional] 
+**InputAudio** | Pointer to **string** | Binary audio data of the reference speaker for synthesizing the text, encoded in base64 | [optional] 
 **GetLanguage** | Pointer to **NullableBool** |  | [optional] 
 **GetTimestamps** | Pointer to **NullableBool** |  | [optional] 
 
@@ -78,16 +78,6 @@ SetInputAudio sets InputAudio field to given value.
 
 HasInputAudio returns a boolean if a field has been set.
 
-### SetInputAudioNil
-
-`func (o *SpeechTranscribeRequest) SetInputAudioNil(b bool)`
-
- SetInputAudioNil sets the value for InputAudio to be an explicit nil
-
-### UnsetInputAudio
-`func (o *SpeechTranscribeRequest) UnsetInputAudio()`
-
-UnsetInputAudio ensures that no value is present for InputAudio, not even an explicit nil
 ### GetGetLanguage
 
 `func (o *SpeechTranscribeRequest) GetGetLanguage() bool`
