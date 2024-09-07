@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Model** | Pointer to **string** | the name of the model | [optional] [default to ""]
 **Input** | Pointer to **string** | the text to synthesize | [optional] [default to ""]
-**Language** | Pointer to **string** | language to synthesize. Only if the model supports language IDs. Please refer to the model&#39;s documentation for which values are availiable. | [optional] 
+**Language** | Pointer to **NullableString** |  | [optional] 
 **Voice** | Pointer to **NullableString** |  | [optional] 
 **InputAudio** | Pointer to **NullableString** |  | [optional] 
 **InputVadMode** | Pointer to **NullableString** |  | [optional] 
@@ -110,6 +110,16 @@ SetLanguage sets Language field to given value.
 
 HasLanguage returns a boolean if a field has been set.
 
+### SetLanguageNil
+
+`func (o *TextToSpeechRequest) SetLanguageNil(b bool)`
+
+ SetLanguageNil sets the value for Language to be an explicit nil
+
+### UnsetLanguage
+`func (o *TextToSpeechRequest) UnsetLanguage()`
+
+UnsetLanguage ensures that no value is present for Language, not even an explicit nil
 ### GetVoice
 
 `func (o *TextToSpeechRequest) GetVoice() string`

@@ -587,9 +587,7 @@ components:
           title: Input
           type: string
         language:
-          description: language to synthesize. Only if the model supports language
-            IDs. Please refer to the model's documentation for which values are availiable.
-          title: Language
+          nullable: true
           type: string
         voice:
           nullable: true
