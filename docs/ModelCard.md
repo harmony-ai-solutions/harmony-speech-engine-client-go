@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Object** | Pointer to **string** |  | [optional] [default to "model"]
 **Created** | Pointer to **int32** |  | [optional] 
 **OwnedBy** | Pointer to **string** |  | [optional] [default to "harmony-ai-solutions"]
+**Languages** | Pointer to [**[]LanguageOptions**](LanguageOptions.md) |  | [optional] 
 **Root** | Pointer to **NullableString** |  | [optional] 
 **Parent** | Pointer to **NullableString** |  | [optional] 
 
@@ -125,6 +126,41 @@ SetOwnedBy sets OwnedBy field to given value.
 
 HasOwnedBy returns a boolean if a field has been set.
 
+### GetLanguages
+
+`func (o *ModelCard) GetLanguages() []LanguageOptions`
+
+GetLanguages returns the Languages field if non-nil, zero value otherwise.
+
+### GetLanguagesOk
+
+`func (o *ModelCard) GetLanguagesOk() (*[]LanguageOptions, bool)`
+
+GetLanguagesOk returns a tuple with the Languages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLanguages
+
+`func (o *ModelCard) SetLanguages(v []LanguageOptions)`
+
+SetLanguages sets Languages field to given value.
+
+### HasLanguages
+
+`func (o *ModelCard) HasLanguages() bool`
+
+HasLanguages returns a boolean if a field has been set.
+
+### SetLanguagesNil
+
+`func (o *ModelCard) SetLanguagesNil(b bool)`
+
+ SetLanguagesNil sets the value for Languages to be an explicit nil
+
+### UnsetLanguages
+`func (o *ModelCard) UnsetLanguages()`
+
+UnsetLanguages ensures that no value is present for Languages, not even an explicit nil
 ### GetRoot
 
 `func (o *ModelCard) GetRoot() string`

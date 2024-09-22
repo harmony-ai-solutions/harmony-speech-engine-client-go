@@ -11,6 +11,7 @@ docs/EmbedSpeakerRequest.md
 docs/EmbedSpeakerResponse.md
 docs/GenerationOptions.md
 docs/HTTPValidationError.md
+docs/LanguageOptions.md
 docs/ModelCard.md
 docs/ModelList.md
 docs/SpeechToTextResponse.md
@@ -21,6 +22,7 @@ docs/ValidationError.md
 docs/ValidationErrorLocInner.md
 docs/VoiceConversionRequest.md
 docs/VoiceConversionResponse.md
+docs/VoiceOptions.md
 git_push.sh
 go.mod
 go.sum
@@ -29,6 +31,7 @@ model_embed_speaker_request.go
 model_embed_speaker_response.go
 model_generation_options.go
 model_http_validation_error.go
+model_language_options.go
 model_model_card.go
 model_model_list.go
 model_speech_to_text_response.go
@@ -39,5 +42,6 @@ model_validation_error.go
 model_validation_error_loc_inner.go
 model_voice_conversion_request.go
 model_voice_conversion_response.go
+model_voice_options.go
 response.go
 utils.go

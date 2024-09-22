@@ -20,12 +20,13 @@ var _ MappedNullable = &ModelCard{}
 
 // ModelCard struct for ModelCard
 type ModelCard struct {
-	Id string `json:"id"`
-	Object *string `json:"object,omitempty"`
-	Created *int32 `json:"created,omitempty"`
-	OwnedBy *string `json:"owned_by,omitempty"`
-	Root NullableString `json:"root,omitempty"`
-	Parent NullableString `json:"parent,omitempty"`
+	Id                   string            `json:"id"`
+	Object               *string           `json:"object,omitempty"`
+	Created              *int32            `json:"created,omitempty"`
+	OwnedBy              *string           `json:"owned_by,omitempty"`
+	Languages            []LanguageOptions `json:"languages,omitempty"`
+	Root                 NullableString    `json:"root,omitempty"`
+	Parent               NullableString    `json:"parent,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -177,6 +178,39 @@ func (o *ModelCard) SetOwnedBy(v string) {
 	o.OwnedBy = &v
 }
 
+// GetLanguages returns the Languages field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelCard) GetLanguages() []LanguageOptions {
+	if o == nil {
+		var ret []LanguageOptions
+		return ret
+	}
+	return o.Languages
+}
+
+// GetLanguagesOk returns a tuple with the Languages field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelCard) GetLanguagesOk() ([]LanguageOptions, bool) {
+	if o == nil || IsNil(o.Languages) {
+		return nil, false
+	}
+	return o.Languages, true
+}
+
+// HasLanguages returns a boolean if a field has been set.
+func (o *ModelCard) HasLanguages() bool {
+	if o != nil && !IsNil(o.Languages) {
+		return true
+	}
+
+	return false
+}
+
+// SetLanguages gets a reference to the given []LanguageOptions and assigns it to the Languages field.
+func (o *ModelCard) SetLanguages(v []LanguageOptions) {
+	o.Languages = v
+}
+
 // GetRoot returns the Root field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ModelCard) GetRoot() string {
 	if o == nil || IsNil(o.Root.Get()) {
@@ -209,6 +243,7 @@ func (o *ModelCard) HasRoot() bool {
 func (o *ModelCard) SetRoot(v string) {
 	o.Root.Set(&v)
 }
+
 // SetRootNil sets the value for Root to be an explicit nil
 func (o *ModelCard) SetRootNil() {
 	o.Root.Set(nil)
@@ -251,6 +286,7 @@ func (o *ModelCard) HasParent() bool {
 func (o *ModelCard) SetParent(v string) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *ModelCard) SetParentNil() {
 	o.Parent.Set(nil)
@@ -262,7 +298,7 @@ func (o *ModelCard) UnsetParent() {
 }
 
 func (o ModelCard) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -280,6 +316,9 @@ func (o ModelCard) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OwnedBy) {
 		toSerialize["owned_by"] = o.OwnedBy
+	}
+	if o.Languages != nil {
+		toSerialize["languages"] = o.Languages
 	}
 	if o.Root.IsSet() {
 		toSerialize["root"] = o.Root.Get()
@@ -308,10 +347,10 @@ func (o *ModelCard) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -334,6 +373,7 @@ func (o *ModelCard) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "object")
 		delete(additionalProperties, "created")
 		delete(additionalProperties, "owned_by")
+		delete(additionalProperties, "languages")
 		delete(additionalProperties, "root")
 		delete(additionalProperties, "parent")
 		o.AdditionalProperties = additionalProperties
@@ -377,5 +417,3 @@ func (v *NullableModelCard) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

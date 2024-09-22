@@ -398,9 +398,52 @@ components:
             $ref: '#/components/schemas/ValidationError'
           type: array
       title: HTTPValidationError
+    LanguageOptions:
+      example:
+        voices:
+        - voice: default
+          styles:
+          - styles
+          - styles
+        - voice: default
+          styles:
+          - styles
+          - styles
+        language: default
+      properties:
+        language:
+          default: default
+          title: Language
+          type: string
+        voices:
+          items:
+            $ref: '#/components/schemas/VoiceOptions'
+          nullable: true
+      title: LanguageOptions
     ModelCard:
       example:
         parent: parent
+        languages:
+        - voices:
+          - voice: default
+            styles:
+            - styles
+            - styles
+          - voice: default
+            styles:
+            - styles
+            - styles
+          language: default
+        - voices:
+          - voice: default
+            styles:
+            - styles
+            - styles
+          - voice: default
+            styles:
+            - styles
+            - styles
+          language: default
         created: 0
         root: root
         owned_by: harmony-ai-solutions
@@ -421,6 +464,10 @@ components:
           default: harmony-ai-solutions
           title: Owned By
           type: string
+        languages:
+          items:
+            $ref: '#/components/schemas/LanguageOptions'
+          nullable: true
         root:
           nullable: true
           type: string
@@ -434,12 +481,54 @@ components:
       example:
         data:
         - parent: parent
+          languages:
+          - voices:
+            - voice: default
+              styles:
+              - styles
+              - styles
+            - voice: default
+              styles:
+              - styles
+              - styles
+            language: default
+          - voices:
+            - voice: default
+              styles:
+              - styles
+              - styles
+            - voice: default
+              styles:
+              - styles
+              - styles
+            language: default
           created: 0
           root: root
           owned_by: harmony-ai-solutions
           id: id
           object: model
         - parent: parent
+          languages:
+          - voices:
+            - voice: default
+              styles:
+              - styles
+              - styles
+            - voice: default
+              styles:
+              - styles
+              - styles
+            language: default
+          - voices:
+            - voice: default
+              styles:
+              - styles
+              - styles
+            - voice: default
+              styles:
+              - styles
+              - styles
+            language: default
           created: 0
           root: root
           owned_by: harmony-ai-solutions
@@ -731,6 +820,22 @@ components:
           title: Data
           type: string
       title: VoiceConversionResponse
+    VoiceOptions:
+      example:
+        voice: default
+        styles:
+        - styles
+        - styles
+      properties:
+        voice:
+          default: default
+          title: Voice
+          type: string
+        styles:
+          items:
+            type: string
+          nullable: true
+      title: VoiceOptions
     ValidationError_loc_inner:
       anyOf:
       - type: string
