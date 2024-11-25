@@ -619,6 +619,7 @@ components:
         Depending on model selection, the caller may need to provide additional params.
         Based on OpenAI TTS API; extended for Harmony Speech Engine features.
       example:
+        mode: ""
         voice: voice
         input: ""
         input_vad_data: input_vad_data
@@ -676,6 +677,11 @@ components:
           default: ""
           description: the text to synthesize
           title: Input
+          type: string
+        mode:
+          default: ""
+          description: the operation mode for the model to process the request
+          title: Mode
           type: string
         language:
           nullable: true

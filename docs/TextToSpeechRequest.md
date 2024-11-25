@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Model** | Pointer to **string** | the name of the model | [optional] [default to ""]
 **Input** | Pointer to **string** | the text to synthesize | [optional] [default to ""]
+**Mode** | Pointer to **string** | the operation mode for the model to process the request | [optional] [default to ""]
 **Language** | Pointer to **NullableString** |  | [optional] 
 **Voice** | Pointer to **NullableString** |  | [optional] 
 **InputAudio** | Pointer to **NullableString** |  | [optional] 
@@ -84,6 +85,31 @@ SetInput sets Input field to given value.
 `func (o *TextToSpeechRequest) HasInput() bool`
 
 HasInput returns a boolean if a field has been set.
+
+### GetMode
+
+`func (o *TextToSpeechRequest) GetMode() string`
+
+GetMode returns the Mode field if non-nil, zero value otherwise.
+
+### GetModeOk
+
+`func (o *TextToSpeechRequest) GetModeOk() (*string, bool)`
+
+GetModeOk returns a tuple with the Mode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMode
+
+`func (o *TextToSpeechRequest) SetMode(v string)`
+
+SetMode sets Mode field to given value.
+
+### HasMode
+
+`func (o *TextToSpeechRequest) HasMode() bool`
+
+HasMode returns a boolean if a field has been set.
 
 ### GetLanguage
 
