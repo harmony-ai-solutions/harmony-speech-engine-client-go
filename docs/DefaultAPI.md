@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## ConvertVoiceV1VoiceConvertPost
 
-> VoiceConversionResponse ConvertVoiceV1VoiceConvertPost(ctx).VoiceConversionRequest(voiceConversionRequest).XApiKey(xApiKey).Execute()
+> VoiceConversionResponse ConvertVoiceV1VoiceConvertPost(ctx).VoiceConversionRequest(voiceConversionRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 
 Convert Voice
 
@@ -40,10 +40,11 @@ import (
 func main() {
 	voiceConversionRequest := *openapiclient.NewVoiceConversionRequest() // VoiceConversionRequest | 
 	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.ConvertVoiceV1VoiceConvertPost(context.Background()).VoiceConversionRequest(voiceConversionRequest).XApiKey(xApiKey).Execute()
+	resp, r, err := apiClient.DefaultAPI.ConvertVoiceV1VoiceConvertPost(context.Background()).VoiceConversionRequest(voiceConversionRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ConvertVoiceV1VoiceConvertPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -66,6 +67,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **voiceConversionRequest** | [**VoiceConversionRequest**](VoiceConversionRequest.md) |  | 
  **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
 
 ### Return type
 
@@ -87,7 +89,7 @@ No authorization required
 
 ## CreateEmbeddingV1EmbedSpeakerPost
 
-> EmbedSpeakerResponse CreateEmbeddingV1EmbedSpeakerPost(ctx).EmbedSpeakerRequest(embedSpeakerRequest).XApiKey(xApiKey).Execute()
+> EmbedSpeakerResponse CreateEmbeddingV1EmbedSpeakerPost(ctx).EmbedSpeakerRequest(embedSpeakerRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 
 Create Embedding
 
@@ -108,10 +110,11 @@ import (
 func main() {
 	embedSpeakerRequest := *openapiclient.NewEmbedSpeakerRequest() // EmbedSpeakerRequest | 
 	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.CreateEmbeddingV1EmbedSpeakerPost(context.Background()).EmbedSpeakerRequest(embedSpeakerRequest).XApiKey(xApiKey).Execute()
+	resp, r, err := apiClient.DefaultAPI.CreateEmbeddingV1EmbedSpeakerPost(context.Background()).EmbedSpeakerRequest(embedSpeakerRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateEmbeddingV1EmbedSpeakerPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -134,6 +137,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **embedSpeakerRequest** | [**EmbedSpeakerRequest**](EmbedSpeakerRequest.md) |  | 
  **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
 
 ### Return type
 
@@ -155,7 +159,7 @@ No authorization required
 
 ## CreateSpeechV1AudioSpeechPost
 
-> TextToSpeechResponse CreateSpeechV1AudioSpeechPost(ctx).TextToSpeechRequest(textToSpeechRequest).XApiKey(xApiKey).Execute()
+> TextToSpeechResponse CreateSpeechV1AudioSpeechPost(ctx).TextToSpeechRequest(textToSpeechRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 
 Create Speech
 
@@ -176,10 +180,11 @@ import (
 func main() {
 	textToSpeechRequest := *openapiclient.NewTextToSpeechRequest() // TextToSpeechRequest | 
 	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.CreateSpeechV1AudioSpeechPost(context.Background()).TextToSpeechRequest(textToSpeechRequest).XApiKey(xApiKey).Execute()
+	resp, r, err := apiClient.DefaultAPI.CreateSpeechV1AudioSpeechPost(context.Background()).TextToSpeechRequest(textToSpeechRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateSpeechV1AudioSpeechPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -202,6 +207,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **textToSpeechRequest** | [**TextToSpeechRequest**](TextToSpeechRequest.md) |  | 
  **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
 
 ### Return type
 
@@ -223,7 +229,7 @@ No authorization required
 
 ## CreateTranscriptionV1AudioTranscriptionsPost
 
-> SpeechToTextResponse CreateTranscriptionV1AudioTranscriptionsPost(ctx).SpeechTranscribeRequest(speechTranscribeRequest).XApiKey(xApiKey).Execute()
+> SpeechToTextResponse CreateTranscriptionV1AudioTranscriptionsPost(ctx).SpeechTranscribeRequest(speechTranscribeRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 
 Create Transcription
 
@@ -244,10 +250,11 @@ import (
 func main() {
 	speechTranscribeRequest := *openapiclient.NewSpeechTranscribeRequest() // SpeechTranscribeRequest | 
 	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.CreateTranscriptionV1AudioTranscriptionsPost(context.Background()).SpeechTranscribeRequest(speechTranscribeRequest).XApiKey(xApiKey).Execute()
+	resp, r, err := apiClient.DefaultAPI.CreateTranscriptionV1AudioTranscriptionsPost(context.Background()).SpeechTranscribeRequest(speechTranscribeRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateTranscriptionV1AudioTranscriptionsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -270,6 +277,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **speechTranscribeRequest** | [**SpeechTranscribeRequest**](SpeechTranscribeRequest.md) |  | 
  **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
 
 ### Return type
 
@@ -352,7 +360,7 @@ No authorization required
 
 ## ShowAvailableEmbeddingModelsV1EmbedModelsGet
 
-> ModelList ShowAvailableEmbeddingModelsV1EmbedModelsGet(ctx).XApiKey(xApiKey).Execute()
+> ModelList ShowAvailableEmbeddingModelsV1EmbedModelsGet(ctx).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 
 Show Available Embedding Models
 
@@ -372,10 +380,11 @@ import (
 
 func main() {
 	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.ShowAvailableEmbeddingModelsV1EmbedModelsGet(context.Background()).XApiKey(xApiKey).Execute()
+	resp, r, err := apiClient.DefaultAPI.ShowAvailableEmbeddingModelsV1EmbedModelsGet(context.Background()).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowAvailableEmbeddingModelsV1EmbedModelsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -397,6 +406,7 @@ Other parameters are passed through a pointer to a apiShowAvailableEmbeddingMode
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
 
 ### Return type
 
@@ -418,7 +428,7 @@ No authorization required
 
 ## ShowAvailableSpeechModelsV1AudioSpeechModelsGet
 
-> ModelList ShowAvailableSpeechModelsV1AudioSpeechModelsGet(ctx).XApiKey(xApiKey).Execute()
+> ModelList ShowAvailableSpeechModelsV1AudioSpeechModelsGet(ctx).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 
 Show Available Speech Models
 
@@ -438,10 +448,11 @@ import (
 
 func main() {
 	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.ShowAvailableSpeechModelsV1AudioSpeechModelsGet(context.Background()).XApiKey(xApiKey).Execute()
+	resp, r, err := apiClient.DefaultAPI.ShowAvailableSpeechModelsV1AudioSpeechModelsGet(context.Background()).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowAvailableSpeechModelsV1AudioSpeechModelsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -463,6 +474,7 @@ Other parameters are passed through a pointer to a apiShowAvailableSpeechModelsV
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
 
 ### Return type
 
@@ -484,7 +496,7 @@ No authorization required
 
 ## ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet
 
-> ModelList ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet(ctx).XApiKey(xApiKey).Execute()
+> ModelList ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet(ctx).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 
 Show Available Transcription Models
 
@@ -504,10 +516,11 @@ import (
 
 func main() {
 	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet(context.Background()).XApiKey(xApiKey).Execute()
+	resp, r, err := apiClient.DefaultAPI.ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet(context.Background()).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -529,6 +542,7 @@ Other parameters are passed through a pointer to a apiShowAvailableTranscription
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
 
 ### Return type
 
@@ -550,7 +564,7 @@ No authorization required
 
 ## ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet
 
-> interface{} ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet(ctx).XApiKey(xApiKey).Execute()
+> interface{} ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet(ctx).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 
 Show Available Voice Conversion Models
 
@@ -570,10 +584,11 @@ import (
 
 func main() {
 	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet(context.Background()).XApiKey(xApiKey).Execute()
+	resp, r, err := apiClient.DefaultAPI.ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet(context.Background()).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -595,6 +610,7 @@ Other parameters are passed through a pointer to a apiShowAvailableVoiceConversi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
 
 ### Return type
 
@@ -616,7 +632,7 @@ No authorization required
 
 ## ShowVersionVersionGet
 
-> map[string]interface{} ShowVersionVersionGet(ctx).XApiKey(xApiKey).Execute()
+> map[string]interface{} ShowVersionVersionGet(ctx).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 
 Show Version
 
@@ -636,10 +652,11 @@ import (
 
 func main() {
 	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DefaultAPI.ShowVersionVersionGet(context.Background()).XApiKey(xApiKey).Execute()
+	resp, r, err := apiClient.DefaultAPI.ShowVersionVersionGet(context.Background()).XApiKey(xApiKey).ApiKey(apiKey).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowVersionVersionGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -661,6 +678,7 @@ Other parameters are passed through a pointer to a apiShowVersionVersionGetReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
 
 ### Return type
 
