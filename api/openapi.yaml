@@ -6,7 +6,7 @@ info:
   x-go-client-name: HarmonySpeechAPI
   x-go-package: harmonyspeech
 servers:
-- url: /
+  - url: /
 paths:
   /health:
     get:
@@ -27,14 +27,22 @@ paths:
       description: Fetch the Harmony Speech Engine version.
       operationId: show_version_version_get
       parameters:
-      - explode: false
-        in: header
-        name: x-api-key
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: simple
+        - explode: false
+          in: header
+          name: x-api-key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
+        - explode: false
+          in: header
+          name: Api-Key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
       responses:
         "200":
           content:
@@ -55,14 +63,22 @@ paths:
       description: Generate speech Audio from text.
       operationId: create_speech_v1_audio_speech_post
       parameters:
-      - explode: false
-        in: header
-        name: x-api-key
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: simple
+        - explode: false
+          in: header
+          name: x-api-key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
+        - explode: false
+          in: header
+          name: Api-Key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -88,14 +104,22 @@ paths:
       description: Show available speech models.
       operationId: show_available_speech_models_v1_audio_speech_models_get
       parameters:
-      - explode: false
-        in: header
-        name: x-api-key
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: simple
+        - explode: false
+          in: header
+          name: x-api-key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
+        - explode: false
+          in: header
+          name: Api-Key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
       responses:
         "200":
           content:
@@ -115,14 +139,22 @@ paths:
       description: Create a speaker embedding.
       operationId: create_embedding_v1_embed_speaker_post
       parameters:
-      - explode: false
-        in: header
-        name: x-api-key
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: simple
+        - explode: false
+          in: header
+          name: x-api-key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
+        - explode: false
+          in: header
+          name: Api-Key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -148,14 +180,22 @@ paths:
       description: Show available embedding models.
       operationId: show_available_embedding_models_v1_embed_models_get
       parameters:
-      - explode: false
-        in: header
-        name: x-api-key
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: simple
+        - explode: false
+          in: header
+          name: x-api-key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
+        - explode: false
+          in: header
+          name: Api-Key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
       responses:
         "200":
           content:
@@ -175,14 +215,22 @@ paths:
       description: Create a transcription from audio.
       operationId: create_transcription_v1_audio_transcriptions_post
       parameters:
-      - explode: false
-        in: header
-        name: x-api-key
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: simple
+        - explode: false
+          in: header
+          name: x-api-key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
+        - explode: false
+          in: header
+          name: Api-Key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -208,14 +256,22 @@ paths:
       description: Show available transcription models.
       operationId: show_available_transcription_models_v1_audio_transcriptions_models_get
       parameters:
-      - explode: false
-        in: header
-        name: x-api-key
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: simple
+        - explode: false
+          in: header
+          name: x-api-key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
+        - explode: false
+          in: header
+          name: Api-Key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
       responses:
         "200":
           content:
@@ -236,14 +292,22 @@ paths:
         voice.
       operationId: convert_voice_v1_voice_convert_post
       parameters:
-      - explode: false
-        in: header
-        name: x-api-key
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: simple
+        - explode: false
+          in: header
+          name: x-api-key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
+        - explode: false
+          in: header
+          name: Api-Key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
       requestBody:
         content:
           application/json:
@@ -269,14 +333,22 @@ paths:
       description: Show available voice conversion models.
       operationId: show_available_voice_conversion_models_v1_voice_convert_models_get
       parameters:
-      - explode: false
-        in: header
-        name: x-api-key
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: simple
+        - explode: false
+          in: header
+          name: x-api-key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
+        - explode: false
+          in: header
+          name: Api-Key
+          required: false
+          schema:
+            nullable: true
+            type: string
+          style: simple
       responses:
         "200":
           content:
@@ -382,16 +454,16 @@ components:
     HTTPValidationError:
       example:
         detail:
-        - msg: msg
-          loc:
-          - ValidationError_loc_inner
-          - ValidationError_loc_inner
-          type: type
-        - msg: msg
-          loc:
-          - ValidationError_loc_inner
-          - ValidationError_loc_inner
-          type: type
+          - msg: msg
+            loc:
+              - ValidationError_loc_inner
+              - ValidationError_loc_inner
+            type: type
+          - msg: msg
+            loc:
+              - ValidationError_loc_inner
+              - ValidationError_loc_inner
+            type: type
       properties:
         detail:
           items:
@@ -401,14 +473,14 @@ components:
     LanguageOptions:
       example:
         voices:
-        - voice: default
-          styles:
-          - styles
-          - styles
-        - voice: default
-          styles:
-          - styles
-          - styles
+          - voice: default
+            styles:
+              - styles
+              - styles
+          - voice: default
+            styles:
+              - styles
+              - styles
         language: default
       properties:
         language:
@@ -419,31 +491,32 @@ components:
           items:
             $ref: '#/components/schemas/VoiceOptions'
           nullable: true
+          type: array
       title: LanguageOptions
     ModelCard:
       example:
         parent: parent
         languages:
-        - voices:
-          - voice: default
-            styles:
-            - styles
-            - styles
-          - voice: default
-            styles:
-            - styles
-            - styles
-          language: default
-        - voices:
-          - voice: default
-            styles:
-            - styles
-            - styles
-          - voice: default
-            styles:
-            - styles
-            - styles
-          language: default
+          - voices:
+              - voice: default
+                styles:
+                  - styles
+                  - styles
+              - voice: default
+                styles:
+                  - styles
+                  - styles
+            language: default
+          - voices:
+              - voice: default
+                styles:
+                  - styles
+                  - styles
+              - voice: default
+                styles:
+                  - styles
+                  - styles
+            language: default
         created: 0
         root: root
         owned_by: harmony-ai-solutions
@@ -468,6 +541,7 @@ components:
           items:
             $ref: '#/components/schemas/LanguageOptions'
           nullable: true
+          type: array
         root:
           nullable: true
           type: string
@@ -475,65 +549,65 @@ components:
           nullable: true
           type: string
       required:
-      - id
+        - id
       title: ModelCard
     ModelList:
       example:
         data:
-        - parent: parent
-          languages:
-          - voices:
-            - voice: default
-              styles:
-              - styles
-              - styles
-            - voice: default
-              styles:
-              - styles
-              - styles
-            language: default
-          - voices:
-            - voice: default
-              styles:
-              - styles
-              - styles
-            - voice: default
-              styles:
-              - styles
-              - styles
-            language: default
-          created: 0
-          root: root
-          owned_by: harmony-ai-solutions
-          id: id
-          object: model
-        - parent: parent
-          languages:
-          - voices:
-            - voice: default
-              styles:
-              - styles
-              - styles
-            - voice: default
-              styles:
-              - styles
-              - styles
-            language: default
-          - voices:
-            - voice: default
-              styles:
-              - styles
-              - styles
-            - voice: default
-              styles:
-              - styles
-              - styles
-            language: default
-          created: 0
-          root: root
-          owned_by: harmony-ai-solutions
-          id: id
-          object: model
+          - parent: parent
+            languages:
+              - voices:
+                  - voice: default
+                    styles:
+                      - styles
+                      - styles
+                  - voice: default
+                    styles:
+                      - styles
+                      - styles
+                language: default
+              - voices:
+                  - voice: default
+                    styles:
+                      - styles
+                      - styles
+                  - voice: default
+                    styles:
+                      - styles
+                      - styles
+                language: default
+            created: 0
+            root: root
+            owned_by: harmony-ai-solutions
+            id: id
+            object: model
+          - parent: parent
+            languages:
+              - voices:
+                  - voice: default
+                    styles:
+                      - styles
+                      - styles
+                  - voice: default
+                    styles:
+                      - styles
+                      - styles
+                language: default
+              - voices:
+                  - voice: default
+                    styles:
+                      - styles
+                      - styles
+                  - voice: default
+                    styles:
+                      - styles
+                      - styles
+                language: default
+            created: 0
+            root: root
+            owned_by: harmony-ai-solutions
+            id: id
+            object: model
         object: list
       properties:
         object:
@@ -552,8 +626,8 @@ components:
       example:
         created: 0
         timestamps:
-        - "{}"
-        - "{}"
+          - "{}"
+          - "{}"
         model: ""
         language: language
         id: id
@@ -582,6 +656,7 @@ components:
           items:
             type: object
           nullable: true
+          type: array
       title: SpeechToTextResponse
     SpeechTranscribeRequest:
       description: |-
@@ -638,34 +713,34 @@ components:
         model: ""
         language: language
         post_generation_filters:
-        - target_embedding: target_embedding
-          output_options:
-            sample_rate: 2
-            stream: true
-            format: format
-          source_audio: source_audio
-          generation_options:
-            seed: 0
-            style: 6
-            pitch: 5.962133916683182
-            speed: 1.4658129805029452
-            energy: 5.637376656633329
-          model: ""
-          target_audio: target_audio
-        - target_embedding: target_embedding
-          output_options:
-            sample_rate: 2
-            stream: true
-            format: format
-          source_audio: source_audio
-          generation_options:
-            seed: 0
-            style: 6
-            pitch: 5.962133916683182
-            speed: 1.4658129805029452
-            energy: 5.637376656633329
-          model: ""
-          target_audio: target_audio
+          - target_embedding: target_embedding
+            output_options:
+              sample_rate: 2
+              stream: true
+              format: format
+            source_audio: source_audio
+            generation_options:
+              seed: 0
+              style: 6
+              pitch: 5.962133916683182
+              speed: 1.4658129805029452
+              energy: 5.637376656633329
+            model: ""
+            target_audio: target_audio
+          - target_embedding: target_embedding
+            output_options:
+              sample_rate: 2
+              stream: true
+              format: format
+            source_audio: source_audio
+            generation_options:
+              seed: 0
+              style: 6
+              pitch: 5.962133916683182
+              speed: 1.4658129805029452
+              energy: 5.637376656633329
+            model: ""
+            target_audio: target_audio
         input_embedding: input_embedding
       properties:
         model:
@@ -709,6 +784,7 @@ components:
           items:
             $ref: '#/components/schemas/VoiceConversionRequest'
           nullable: true
+          type: array
       title: TextToSpeechRequest
     TextToSpeechResponse:
       description: |-
@@ -740,8 +816,8 @@ components:
       example:
         msg: msg
         loc:
-        - ValidationError_loc_inner
-        - ValidationError_loc_inner
+          - ValidationError_loc_inner
+          - ValidationError_loc_inner
         type: type
       properties:
         loc:
@@ -755,9 +831,9 @@ components:
           title: Error Type
           type: string
       required:
-      - loc
-      - msg
-      - type
+        - loc
+        - msg
+        - type
       title: ValidationError
     VoiceConversionRequest:
       description: |-
@@ -830,8 +906,8 @@ components:
       example:
         voice: default
         styles:
-        - styles
-        - styles
+          - styles
+          - styles
       properties:
         voice:
           default: default
@@ -841,8 +917,9 @@ components:
           items:
             type: string
           nullable: true
+          type: array
       title: VoiceOptions
     ValidationError_loc_inner:
       anyOf:
-      - type: string
-      - type: integer
+        - type: string
+        - type: integer
