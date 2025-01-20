@@ -8,10 +8,12 @@ Method | HTTP request | Description
 [**CreateEmbeddingV1EmbedSpeakerPost**](DefaultAPI.md#CreateEmbeddingV1EmbedSpeakerPost) | **Post** /v1/embed/speaker | Create Embedding
 [**CreateSpeechV1AudioSpeechPost**](DefaultAPI.md#CreateSpeechV1AudioSpeechPost) | **Post** /v1/audio/speech | Create Speech
 [**CreateTranscriptionV1AudioTranscriptionsPost**](DefaultAPI.md#CreateTranscriptionV1AudioTranscriptionsPost) | **Post** /v1/audio/transcriptions | Create Transcription
+[**CreateVadV1AudioVadPost**](DefaultAPI.md#CreateVadV1AudioVadPost) | **Post** /v1/audio/vad | Create Vad
 [**HealthHealthGet**](DefaultAPI.md#HealthHealthGet) | **Get** /health | Health
 [**ShowAvailableEmbeddingModelsV1EmbedModelsGet**](DefaultAPI.md#ShowAvailableEmbeddingModelsV1EmbedModelsGet) | **Get** /v1/embed/models | Show Available Embedding Models
 [**ShowAvailableSpeechModelsV1AudioSpeechModelsGet**](DefaultAPI.md#ShowAvailableSpeechModelsV1AudioSpeechModelsGet) | **Get** /v1/audio/speech/models | Show Available Speech Models
 [**ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet**](DefaultAPI.md#ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet) | **Get** /v1/audio/transcriptions/models | Show Available Transcription Models
+[**ShowAvailableVadModelsV1AudioVadModelsGet**](DefaultAPI.md#ShowAvailableVadModelsV1AudioVadModelsGet) | **Get** /v1/audio/vad/models | Show Available Vad Models
 [**ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet**](DefaultAPI.md#ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet) | **Get** /v1/voice/convert/models | Show Available Voice Conversion Models
 [**ShowVersionVersionGet**](DefaultAPI.md#ShowVersionVersionGet) | **Get** /version | Show Version
 
@@ -297,6 +299,76 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## CreateVadV1AudioVadPost
+
+> DetectVoiceActivityResponse CreateVadV1AudioVadPost(ctx).DetectVoiceActivityRequest(detectVoiceActivityRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
+
+Create Vad
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/harmony-ai-solutions/harmony-speech-engine-client-go"
+)
+
+func main() {
+	detectVoiceActivityRequest := *openapiclient.NewDetectVoiceActivityRequest() // DetectVoiceActivityRequest | 
+	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.CreateVadV1AudioVadPost(context.Background()).DetectVoiceActivityRequest(detectVoiceActivityRequest).XApiKey(xApiKey).ApiKey(apiKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.CreateVadV1AudioVadPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateVadV1AudioVadPost`: DetectVoiceActivityResponse
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.CreateVadV1AudioVadPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateVadV1AudioVadPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **detectVoiceActivityRequest** | [**DetectVoiceActivityRequest**](DetectVoiceActivityRequest.md) |  | 
+ **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
+
+### Return type
+
+[**DetectVoiceActivityResponse**](DetectVoiceActivityResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## HealthHealthGet
 
 > map[string]interface{} HealthHealthGet(ctx).Execute()
@@ -537,6 +609,74 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiKey** | **string** |  | 
+ **apiKey** | **string** |  | 
+
+### Return type
+
+[**ModelList**](ModelList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ShowAvailableVadModelsV1AudioVadModelsGet
+
+> ModelList ShowAvailableVadModelsV1AudioVadModelsGet(ctx).XApiKey(xApiKey).ApiKey(apiKey).Execute()
+
+Show Available Vad Models
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/harmony-ai-solutions/harmony-speech-engine-client-go"
+)
+
+func main() {
+	xApiKey := "xApiKey_example" // string |  (optional)
+	apiKey := "apiKey_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DefaultAPI.ShowAvailableVadModelsV1AudioVadModelsGet(context.Background()).XApiKey(xApiKey).ApiKey(apiKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DefaultAPI.ShowAvailableVadModelsV1AudioVadModelsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ShowAvailableVadModelsV1AudioVadModelsGet`: ModelList
+	fmt.Fprintf(os.Stdout, "Response from `DefaultAPI.ShowAvailableVadModelsV1AudioVadModelsGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiShowAvailableVadModelsV1AudioVadModelsGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

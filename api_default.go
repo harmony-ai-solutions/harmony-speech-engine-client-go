@@ -577,6 +577,145 @@ func (a *DefaultAPIService) CreateTranscriptionV1AudioTranscriptionsPostExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiCreateVadV1AudioVadPostRequest struct {
+	ctx                        context.Context
+	ApiService                 *DefaultAPIService
+	detectVoiceActivityRequest *DetectVoiceActivityRequest
+	xApiKey                    *string
+	apiKey                     *string
+}
+
+func (r ApiCreateVadV1AudioVadPostRequest) DetectVoiceActivityRequest(detectVoiceActivityRequest DetectVoiceActivityRequest) ApiCreateVadV1AudioVadPostRequest {
+	r.detectVoiceActivityRequest = &detectVoiceActivityRequest
+	return r
+}
+
+func (r ApiCreateVadV1AudioVadPostRequest) XApiKey(xApiKey string) ApiCreateVadV1AudioVadPostRequest {
+	r.xApiKey = &xApiKey
+	return r
+}
+
+func (r ApiCreateVadV1AudioVadPostRequest) ApiKey(apiKey string) ApiCreateVadV1AudioVadPostRequest {
+	r.apiKey = &apiKey
+	return r
+}
+
+func (r ApiCreateVadV1AudioVadPostRequest) Execute() (*DetectVoiceActivityResponse, *http.Response, error) {
+	return r.ApiService.CreateVadV1AudioVadPostExecute(r)
+}
+
+/*
+CreateVadV1AudioVadPost Create Vad
+
+Create a vad from audio.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateVadV1AudioVadPostRequest
+*/
+func (a *DefaultAPIService) CreateVadV1AudioVadPost(ctx context.Context) ApiCreateVadV1AudioVadPostRequest {
+	return ApiCreateVadV1AudioVadPostRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Execute executes the request
+//
+//	@return DetectVoiceActivityResponse
+func (a *DefaultAPIService) CreateVadV1AudioVadPostExecute(r ApiCreateVadV1AudioVadPostRequest) (*DetectVoiceActivityResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DetectVoiceActivityResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateVadV1AudioVadPost")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/audio/vad"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.detectVoiceActivityRequest == nil {
+		return localVarReturnValue, nil, reportError("detectVoiceActivityRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-key", r.xApiKey, "simple", "")
+	}
+	if r.apiKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Api-Key", r.apiKey, "simple", "")
+	}
+	// body params
+	localVarPostBody = r.detectVoiceActivityRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v HTTPValidationError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiHealthHealthGetRequest struct {
 	ctx        context.Context
 	ApiService *DefaultAPIService
@@ -986,6 +1125,134 @@ func (a *DefaultAPIService) ShowAvailableTranscriptionModelsV1AudioTranscription
 	}
 
 	localVarPath := localBasePath + "/v1/audio/transcriptions/models"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xApiKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-key", r.xApiKey, "simple", "")
+	}
+	if r.apiKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Api-Key", r.apiKey, "simple", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v HTTPValidationError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiShowAvailableVadModelsV1AudioVadModelsGetRequest struct {
+	ctx        context.Context
+	ApiService *DefaultAPIService
+	xApiKey    *string
+	apiKey     *string
+}
+
+func (r ApiShowAvailableVadModelsV1AudioVadModelsGetRequest) XApiKey(xApiKey string) ApiShowAvailableVadModelsV1AudioVadModelsGetRequest {
+	r.xApiKey = &xApiKey
+	return r
+}
+
+func (r ApiShowAvailableVadModelsV1AudioVadModelsGetRequest) ApiKey(apiKey string) ApiShowAvailableVadModelsV1AudioVadModelsGetRequest {
+	r.apiKey = &apiKey
+	return r
+}
+
+func (r ApiShowAvailableVadModelsV1AudioVadModelsGetRequest) Execute() (*ModelList, *http.Response, error) {
+	return r.ApiService.ShowAvailableVadModelsV1AudioVadModelsGetExecute(r)
+}
+
+/*
+ShowAvailableVadModelsV1AudioVadModelsGet Show Available Vad Models
+
+Show available vad models.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiShowAvailableVadModelsV1AudioVadModelsGetRequest
+*/
+func (a *DefaultAPIService) ShowAvailableVadModelsV1AudioVadModelsGet(ctx context.Context) ApiShowAvailableVadModelsV1AudioVadModelsGetRequest {
+	return ApiShowAvailableVadModelsV1AudioVadModelsGetRequest{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Execute executes the request
+//
+//	@return ModelList
+func (a *DefaultAPIService) ShowAvailableVadModelsV1AudioVadModelsGetExecute(r ApiShowAvailableVadModelsV1AudioVadModelsGetRequest) (*ModelList, *http.Response, error) {
+	var (
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModelList
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ShowAvailableVadModelsV1AudioVadModelsGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/audio/vad/models"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

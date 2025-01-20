@@ -7,6 +7,8 @@ client.go
 configuration.go
 docs/AudioOutputOptions.md
 docs/DefaultAPI.md
+docs/DetectVoiceActivityRequest.md
+docs/DetectVoiceActivityResponse.md
 docs/EmbedSpeakerRequest.md
 docs/EmbedSpeakerResponse.md
 docs/GenerationOptions.md
@@ -27,6 +29,8 @@ git_push.sh
 go.mod
 go.sum
 model_audio_output_options.go
+model_detect_voice_activity_request.go
+model_detect_voice_activity_response.go
 model_embed_speaker_request.go
 model_embed_speaker_response.go
 model_generation_options.go

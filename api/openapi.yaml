@@ -362,6 +362,82 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
           description: Validation Error
       summary: Show Available Voice Conversion Models
+  /v1/audio/vad:
+    post:
+      description: Create a vad from audio.
+      operationId: create_vad_v1_audio_vad_post
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: Api-Key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetectVoiceActivityRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetectVoiceActivityResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Create Vad
+  /v1/audio/vad/models:
+    get:
+      description: Show available vad models.
+      operationId: show_available_vad_models_v1_audio_vad_models_get
+      parameters:
+      - explode: false
+        in: header
+        name: x-api-key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: Api-Key
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelList'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Show Available Vad Models
 components:
   schemas:
     AudioOutputOptions:
@@ -380,6 +456,65 @@ components:
           nullable: true
           type: boolean
       title: AudioOutputOptions
+    DetectVoiceActivityRequest:
+      description: |-
+        DetectVoiceActivityRequest
+        Used to check for human speech in a provided audio file
+        Depending on model selection, the caller may need to provide additional params.
+      example:
+        get_timestamps: true
+        input_audio: input_audio
+        model: ""
+      properties:
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        input_audio:
+          description: "Binary audio data of the reference speaker for synthesizing\
+            \ the text, encoded in base64"
+          title: Input Audio
+          type: string
+        get_timestamps:
+          nullable: true
+          type: boolean
+      title: DetectVoiceActivityRequest
+    DetectVoiceActivityResponse:
+      description: |-
+        DetectVoiceActivityResponse
+        Result text determined from audio and optional language tag
+      example:
+        speech_activity: false
+        created: 0
+        timestamps:
+        - "{}"
+        - "{}"
+        model: ""
+        id: id
+      properties:
+        id:
+          title: Id
+          type: string
+        model:
+          default: ""
+          description: the name of the model
+          title: Model
+          type: string
+        created:
+          title: Created
+          type: integer
+        speech_activity:
+          default: false
+          description: whether speech activity was detected
+          title: Speech Activity
+          type: boolean
+        timestamps:
+          items:
+            type: object
+          nullable: true
+          type: array
+      title: DetectVoiceActivityResponse
     EmbedSpeakerRequest:
       description: |-
         EmbedSpeakerRequest
