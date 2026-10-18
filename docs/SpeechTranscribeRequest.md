@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Model** | Pointer to **string** | the name of the model | [optional] [default to ""]
 **InputAudio** | Pointer to **string** | Binary audio data of the reference speaker for synthesizing the text, encoded in base64 | [optional] 
-**GetLanguage** | Pointer to **NullableBool** |  | [optional] 
-**GetTimestamps** | Pointer to **NullableBool** |  | [optional] 
+**GetLanguage** | Pointer to **NullableBool** | whether to return the source language tag. Check model description if supported. | [optional] 
+**GetTimestamps** | Pointer to **NullableBool** | whether to return the word timestamps. Check model description if supported. | [optional] 
 
 ## Methods
 

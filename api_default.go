@@ -18,15 +18,16 @@ import (
 	"net/url"
 )
 
+
 // DefaultAPIService DefaultAPI service
 type DefaultAPIService service
 
 type ApiConvertVoiceV1VoiceConvertPostRequest struct {
-	ctx                    context.Context
-	ApiService             *DefaultAPIService
+	ctx context.Context
+	ApiService *DefaultAPIService
 	voiceConversionRequest *VoiceConversionRequest
-	xApiKey                *string
-	apiKey                 *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiConvertVoiceV1VoiceConvertPostRequest) VoiceConversionRequest(voiceConversionRequest VoiceConversionRequest) ApiConvertVoiceV1VoiceConvertPostRequest {
@@ -53,25 +54,24 @@ ConvertVoiceV1VoiceConvertPost Convert Voice
 
 Convert the voice in an audio file or stream to a desired target voice.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiConvertVoiceV1VoiceConvertPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiConvertVoiceV1VoiceConvertPostRequest
 */
 func (a *DefaultAPIService) ConvertVoiceV1VoiceConvertPost(ctx context.Context) ApiConvertVoiceV1VoiceConvertPostRequest {
 	return ApiConvertVoiceV1VoiceConvertPostRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return VoiceConversionResponse
+//  @return VoiceConversionResponse
 func (a *DefaultAPIService) ConvertVoiceV1VoiceConvertPostExecute(r ApiConvertVoiceV1VoiceConvertPostRequest) (*VoiceConversionResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *VoiceConversionResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *VoiceConversionResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ConvertVoiceV1VoiceConvertPost")
@@ -142,8 +142,8 @@ func (a *DefaultAPIService) ConvertVoiceV1VoiceConvertPostExecute(r ApiConvertVo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -161,11 +161,11 @@ func (a *DefaultAPIService) ConvertVoiceV1VoiceConvertPostExecute(r ApiConvertVo
 }
 
 type ApiCreateEmbeddingV1EmbedSpeakerPostRequest struct {
-	ctx                 context.Context
-	ApiService          *DefaultAPIService
+	ctx context.Context
+	ApiService *DefaultAPIService
 	embedSpeakerRequest *EmbedSpeakerRequest
-	xApiKey             *string
-	apiKey              *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiCreateEmbeddingV1EmbedSpeakerPostRequest) EmbedSpeakerRequest(embedSpeakerRequest EmbedSpeakerRequest) ApiCreateEmbeddingV1EmbedSpeakerPostRequest {
@@ -192,25 +192,24 @@ CreateEmbeddingV1EmbedSpeakerPost Create Embedding
 
 Create a speaker embedding.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateEmbeddingV1EmbedSpeakerPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateEmbeddingV1EmbedSpeakerPostRequest
 */
 func (a *DefaultAPIService) CreateEmbeddingV1EmbedSpeakerPost(ctx context.Context) ApiCreateEmbeddingV1EmbedSpeakerPostRequest {
 	return ApiCreateEmbeddingV1EmbedSpeakerPostRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return EmbedSpeakerResponse
+//  @return EmbedSpeakerResponse
 func (a *DefaultAPIService) CreateEmbeddingV1EmbedSpeakerPostExecute(r ApiCreateEmbeddingV1EmbedSpeakerPostRequest) (*EmbedSpeakerResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *EmbedSpeakerResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *EmbedSpeakerResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateEmbeddingV1EmbedSpeakerPost")
@@ -281,8 +280,8 @@ func (a *DefaultAPIService) CreateEmbeddingV1EmbedSpeakerPostExecute(r ApiCreate
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -300,11 +299,11 @@ func (a *DefaultAPIService) CreateEmbeddingV1EmbedSpeakerPostExecute(r ApiCreate
 }
 
 type ApiCreateSpeechV1AudioSpeechPostRequest struct {
-	ctx                 context.Context
-	ApiService          *DefaultAPIService
+	ctx context.Context
+	ApiService *DefaultAPIService
 	textToSpeechRequest *TextToSpeechRequest
-	xApiKey             *string
-	apiKey              *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiCreateSpeechV1AudioSpeechPostRequest) TextToSpeechRequest(textToSpeechRequest TextToSpeechRequest) ApiCreateSpeechV1AudioSpeechPostRequest {
@@ -331,25 +330,24 @@ CreateSpeechV1AudioSpeechPost Create Speech
 
 Generate speech Audio from text.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateSpeechV1AudioSpeechPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateSpeechV1AudioSpeechPostRequest
 */
 func (a *DefaultAPIService) CreateSpeechV1AudioSpeechPost(ctx context.Context) ApiCreateSpeechV1AudioSpeechPostRequest {
 	return ApiCreateSpeechV1AudioSpeechPostRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return TextToSpeechResponse
+//  @return TextToSpeechResponse
 func (a *DefaultAPIService) CreateSpeechV1AudioSpeechPostExecute(r ApiCreateSpeechV1AudioSpeechPostRequest) (*TextToSpeechResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *TextToSpeechResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TextToSpeechResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateSpeechV1AudioSpeechPost")
@@ -420,8 +418,8 @@ func (a *DefaultAPIService) CreateSpeechV1AudioSpeechPostExecute(r ApiCreateSpee
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -439,11 +437,11 @@ func (a *DefaultAPIService) CreateSpeechV1AudioSpeechPostExecute(r ApiCreateSpee
 }
 
 type ApiCreateTranscriptionV1AudioTranscriptionsPostRequest struct {
-	ctx                     context.Context
-	ApiService              *DefaultAPIService
+	ctx context.Context
+	ApiService *DefaultAPIService
 	speechTranscribeRequest *SpeechTranscribeRequest
-	xApiKey                 *string
-	apiKey                  *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiCreateTranscriptionV1AudioTranscriptionsPostRequest) SpeechTranscribeRequest(speechTranscribeRequest SpeechTranscribeRequest) ApiCreateTranscriptionV1AudioTranscriptionsPostRequest {
@@ -470,25 +468,24 @@ CreateTranscriptionV1AudioTranscriptionsPost Create Transcription
 
 Create a transcription from audio.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateTranscriptionV1AudioTranscriptionsPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateTranscriptionV1AudioTranscriptionsPostRequest
 */
 func (a *DefaultAPIService) CreateTranscriptionV1AudioTranscriptionsPost(ctx context.Context) ApiCreateTranscriptionV1AudioTranscriptionsPostRequest {
 	return ApiCreateTranscriptionV1AudioTranscriptionsPostRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return SpeechToTextResponse
+//  @return SpeechToTextResponse
 func (a *DefaultAPIService) CreateTranscriptionV1AudioTranscriptionsPostExecute(r ApiCreateTranscriptionV1AudioTranscriptionsPostRequest) (*SpeechToTextResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *SpeechToTextResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SpeechToTextResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateTranscriptionV1AudioTranscriptionsPost")
@@ -559,8 +556,8 @@ func (a *DefaultAPIService) CreateTranscriptionV1AudioTranscriptionsPostExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -578,11 +575,11 @@ func (a *DefaultAPIService) CreateTranscriptionV1AudioTranscriptionsPostExecute(
 }
 
 type ApiCreateVadV1AudioVadPostRequest struct {
-	ctx                        context.Context
-	ApiService                 *DefaultAPIService
+	ctx context.Context
+	ApiService *DefaultAPIService
 	detectVoiceActivityRequest *DetectVoiceActivityRequest
-	xApiKey                    *string
-	apiKey                     *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiCreateVadV1AudioVadPostRequest) DetectVoiceActivityRequest(detectVoiceActivityRequest DetectVoiceActivityRequest) ApiCreateVadV1AudioVadPostRequest {
@@ -609,25 +606,24 @@ CreateVadV1AudioVadPost Create Vad
 
 Create a vad from audio.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCreateVadV1AudioVadPostRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCreateVadV1AudioVadPostRequest
 */
 func (a *DefaultAPIService) CreateVadV1AudioVadPost(ctx context.Context) ApiCreateVadV1AudioVadPostRequest {
 	return ApiCreateVadV1AudioVadPostRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return DetectVoiceActivityResponse
+//  @return DetectVoiceActivityResponse
 func (a *DefaultAPIService) CreateVadV1AudioVadPostExecute(r ApiCreateVadV1AudioVadPostRequest) (*DetectVoiceActivityResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodPost
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *DetectVoiceActivityResponse
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DetectVoiceActivityResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.CreateVadV1AudioVadPost")
@@ -698,8 +694,8 @@ func (a *DefaultAPIService) CreateVadV1AudioVadPostExecute(r ApiCreateVadV1Audio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -717,7 +713,7 @@ func (a *DefaultAPIService) CreateVadV1AudioVadPostExecute(r ApiCreateVadV1Audio
 }
 
 type ApiHealthHealthGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefaultAPIService
 }
 
@@ -730,25 +726,24 @@ HealthHealthGet Health
 
 Health check endpoint to verify the status of all engine serving objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiHealthHealthGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiHealthHealthGetRequest
 */
 func (a *DefaultAPIService) HealthHealthGet(ctx context.Context) ApiHealthHealthGetRequest {
 	return ApiHealthHealthGetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return map[string]interface{}
+//  @return map[string]interface{}
 func (a *DefaultAPIService) HealthHealthGetExecute(r ApiHealthHealthGetRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.HealthHealthGet")
@@ -817,10 +812,10 @@ func (a *DefaultAPIService) HealthHealthGetExecute(r ApiHealthHealthGetRequest) 
 }
 
 type ApiShowAvailableEmbeddingModelsV1EmbedModelsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefaultAPIService
-	xApiKey    *string
-	apiKey     *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiShowAvailableEmbeddingModelsV1EmbedModelsGetRequest) XApiKey(xApiKey string) ApiShowAvailableEmbeddingModelsV1EmbedModelsGetRequest {
@@ -842,25 +837,24 @@ ShowAvailableEmbeddingModelsV1EmbedModelsGet Show Available Embedding Models
 
 Show available embedding models.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiShowAvailableEmbeddingModelsV1EmbedModelsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiShowAvailableEmbeddingModelsV1EmbedModelsGetRequest
 */
 func (a *DefaultAPIService) ShowAvailableEmbeddingModelsV1EmbedModelsGet(ctx context.Context) ApiShowAvailableEmbeddingModelsV1EmbedModelsGetRequest {
 	return ApiShowAvailableEmbeddingModelsV1EmbedModelsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ModelList
+//  @return ModelList
 func (a *DefaultAPIService) ShowAvailableEmbeddingModelsV1EmbedModelsGetExecute(r ApiShowAvailableEmbeddingModelsV1EmbedModelsGetRequest) (*ModelList, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ModelList
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ModelList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ShowAvailableEmbeddingModelsV1EmbedModelsGet")
@@ -926,8 +920,8 @@ func (a *DefaultAPIService) ShowAvailableEmbeddingModelsV1EmbedModelsGetExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -945,10 +939,10 @@ func (a *DefaultAPIService) ShowAvailableEmbeddingModelsV1EmbedModelsGetExecute(
 }
 
 type ApiShowAvailableSpeechModelsV1AudioSpeechModelsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefaultAPIService
-	xApiKey    *string
-	apiKey     *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiShowAvailableSpeechModelsV1AudioSpeechModelsGetRequest) XApiKey(xApiKey string) ApiShowAvailableSpeechModelsV1AudioSpeechModelsGetRequest {
@@ -970,25 +964,24 @@ ShowAvailableSpeechModelsV1AudioSpeechModelsGet Show Available Speech Models
 
 Show available speech models.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiShowAvailableSpeechModelsV1AudioSpeechModelsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiShowAvailableSpeechModelsV1AudioSpeechModelsGetRequest
 */
 func (a *DefaultAPIService) ShowAvailableSpeechModelsV1AudioSpeechModelsGet(ctx context.Context) ApiShowAvailableSpeechModelsV1AudioSpeechModelsGetRequest {
 	return ApiShowAvailableSpeechModelsV1AudioSpeechModelsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ModelList
+//  @return ModelList
 func (a *DefaultAPIService) ShowAvailableSpeechModelsV1AudioSpeechModelsGetExecute(r ApiShowAvailableSpeechModelsV1AudioSpeechModelsGetRequest) (*ModelList, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ModelList
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ModelList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ShowAvailableSpeechModelsV1AudioSpeechModelsGet")
@@ -1054,8 +1047,8 @@ func (a *DefaultAPIService) ShowAvailableSpeechModelsV1AudioSpeechModelsGetExecu
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1073,10 +1066,10 @@ func (a *DefaultAPIService) ShowAvailableSpeechModelsV1AudioSpeechModelsGetExecu
 }
 
 type ApiShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefaultAPIService
-	xApiKey    *string
-	apiKey     *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetRequest) XApiKey(xApiKey string) ApiShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetRequest {
@@ -1098,25 +1091,24 @@ ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet Show Available Tr
 
 Show available transcription models.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetRequest
 */
 func (a *DefaultAPIService) ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet(ctx context.Context) ApiShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetRequest {
 	return ApiShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ModelList
+//  @return ModelList
 func (a *DefaultAPIService) ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetExecute(r ApiShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGetRequest) (*ModelList, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ModelList
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ModelList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ShowAvailableTranscriptionModelsV1AudioTranscriptionsModelsGet")
@@ -1182,8 +1174,8 @@ func (a *DefaultAPIService) ShowAvailableTranscriptionModelsV1AudioTranscription
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1201,10 +1193,10 @@ func (a *DefaultAPIService) ShowAvailableTranscriptionModelsV1AudioTranscription
 }
 
 type ApiShowAvailableVadModelsV1AudioVadModelsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefaultAPIService
-	xApiKey    *string
-	apiKey     *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiShowAvailableVadModelsV1AudioVadModelsGetRequest) XApiKey(xApiKey string) ApiShowAvailableVadModelsV1AudioVadModelsGetRequest {
@@ -1226,25 +1218,24 @@ ShowAvailableVadModelsV1AudioVadModelsGet Show Available Vad Models
 
 Show available vad models.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiShowAvailableVadModelsV1AudioVadModelsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiShowAvailableVadModelsV1AudioVadModelsGetRequest
 */
 func (a *DefaultAPIService) ShowAvailableVadModelsV1AudioVadModelsGet(ctx context.Context) ApiShowAvailableVadModelsV1AudioVadModelsGetRequest {
 	return ApiShowAvailableVadModelsV1AudioVadModelsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return ModelList
+//  @return ModelList
 func (a *DefaultAPIService) ShowAvailableVadModelsV1AudioVadModelsGetExecute(r ApiShowAvailableVadModelsV1AudioVadModelsGetRequest) (*ModelList, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue *ModelList
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ModelList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ShowAvailableVadModelsV1AudioVadModelsGet")
@@ -1310,8 +1301,8 @@ func (a *DefaultAPIService) ShowAvailableVadModelsV1AudioVadModelsGetExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1329,10 +1320,10 @@ func (a *DefaultAPIService) ShowAvailableVadModelsV1AudioVadModelsGetExecute(r A
 }
 
 type ApiShowAvailableVoiceConversionModelsV1VoiceConvertModelsGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefaultAPIService
-	xApiKey    *string
-	apiKey     *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiShowAvailableVoiceConversionModelsV1VoiceConvertModelsGetRequest) XApiKey(xApiKey string) ApiShowAvailableVoiceConversionModelsV1VoiceConvertModelsGetRequest {
@@ -1354,25 +1345,24 @@ ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet Show Available Voice C
 
 Show available voice conversion models.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiShowAvailableVoiceConversionModelsV1VoiceConvertModelsGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiShowAvailableVoiceConversionModelsV1VoiceConvertModelsGetRequest
 */
 func (a *DefaultAPIService) ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet(ctx context.Context) ApiShowAvailableVoiceConversionModelsV1VoiceConvertModelsGetRequest {
 	return ApiShowAvailableVoiceConversionModelsV1VoiceConvertModelsGetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return interface{}
+//  @return interface{}
 func (a *DefaultAPIService) ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGetExecute(r ApiShowAvailableVoiceConversionModelsV1VoiceConvertModelsGetRequest) (interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue interface{}
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ShowAvailableVoiceConversionModelsV1VoiceConvertModelsGet")
@@ -1438,8 +1428,8 @@ func (a *DefaultAPIService) ShowAvailableVoiceConversionModelsV1VoiceConvertMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1457,10 +1447,10 @@ func (a *DefaultAPIService) ShowAvailableVoiceConversionModelsV1VoiceConvertMode
 }
 
 type ApiShowVersionVersionGetRequest struct {
-	ctx        context.Context
+	ctx context.Context
 	ApiService *DefaultAPIService
-	xApiKey    *string
-	apiKey     *string
+	xApiKey *string
+	apiKey *string
 }
 
 func (r ApiShowVersionVersionGetRequest) XApiKey(xApiKey string) ApiShowVersionVersionGetRequest {
@@ -1482,25 +1472,24 @@ ShowVersionVersionGet Show Version
 
 Fetch the Harmony Speech Engine version.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiShowVersionVersionGetRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiShowVersionVersionGetRequest
 */
 func (a *DefaultAPIService) ShowVersionVersionGet(ctx context.Context) ApiShowVersionVersionGetRequest {
 	return ApiShowVersionVersionGetRequest{
 		ApiService: a,
-		ctx:        ctx,
+		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//
-//	@return map[string]interface{}
+//  @return map[string]interface{}
 func (a *DefaultAPIService) ShowVersionVersionGetExecute(r ApiShowVersionVersionGetRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod  = http.MethodGet
-		localVarPostBody    interface{}
-		formFiles           []formFile
-		localVarReturnValue map[string]interface{}
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DefaultAPIService.ShowVersionVersionGet")
@@ -1566,8 +1555,8 @@ func (a *DefaultAPIService) ShowVersionVersionGetExecute(r ApiShowVersionVersion
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-			newErr.model = v
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -24,17 +24,26 @@ type TextToSpeechRequest struct {
 	// the text to synthesize
 	Input *string `json:"input,omitempty"`
 	// the operation mode for the model to process the request
-	Mode                  *string                    `json:"mode,omitempty"`
-	Language              NullableString             `json:"language,omitempty"`
-	Voice                 NullableString             `json:"voice,omitempty"`
-	InputAudio            NullableString             `json:"input_audio,omitempty"`
-	InputVadMode          NullableString             `json:"input_vad_mode,omitempty"`
-	InputVadData          NullableString             `json:"input_vad_data,omitempty"`
-	InputEmbedding        NullableString             `json:"input_embedding,omitempty"`
-	GenerationOptions     NullableGenerationOptions  `json:"generation_options,omitempty"`
-	OutputOptions         NullableAudioOutputOptions `json:"output_options,omitempty"`
-	PostGenerationFilters []VoiceConversionRequest   `json:"post_generation_filters,omitempty"`
-	AdditionalProperties  map[string]interface{}
+	Mode *string `json:"mode,omitempty"`
+	// language to synthesize. Only if the model supports language IDs. Please refer to the model's documentation for which values are availiable.
+	Language NullableString `json:"language,omitempty"`
+	// ID of the voice to synthesize. Only if the model supports voice IDs. Please refer to the model's documentation for which values are availiable.
+	Voice NullableString `json:"voice,omitempty"`
+	// Binary audio data of the reference speaker for synthesizing the text, encoded in base64
+	InputAudio NullableString `json:"input_audio,omitempty"`
+	// VAD mode to use in case the provided TTS or VC framework requires VAD information for processing
+	InputVadMode NullableString `json:"input_vad_mode,omitempty"`
+	// result data from VAD step to be processed in follow-up TTS or VC steps
+	InputVadData NullableString `json:"input_vad_data,omitempty"`
+	// Binary embedding of the reference speaker for synthesizing the text, encoded in base64. Faster than providing a target audio file
+	InputEmbedding NullableString `json:"input_embedding,omitempty"`
+	// Options for generating a speech request, see documentation for possible values
+	GenerationOptions NullableGenerationOptions `json:"generation_options,omitempty"`
+	// Options for returning the generated audio, see documentation for possible values
+	OutputOptions NullableAudioOutputOptions `json:"output_options,omitempty"`
+	// List of Post-Generation filters to apply to the generated audio.
+	PostGenerationFilters []VoiceConversionRequest `json:"post_generation_filters,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
 
 type _TextToSpeechRequest TextToSpeechRequest
@@ -196,7 +205,6 @@ func (o *TextToSpeechRequest) HasLanguage() bool {
 func (o *TextToSpeechRequest) SetLanguage(v string) {
 	o.Language.Set(&v)
 }
-
 // SetLanguageNil sets the value for Language to be an explicit nil
 func (o *TextToSpeechRequest) SetLanguageNil() {
 	o.Language.Set(nil)
@@ -239,7 +247,6 @@ func (o *TextToSpeechRequest) HasVoice() bool {
 func (o *TextToSpeechRequest) SetVoice(v string) {
 	o.Voice.Set(&v)
 }
-
 // SetVoiceNil sets the value for Voice to be an explicit nil
 func (o *TextToSpeechRequest) SetVoiceNil() {
 	o.Voice.Set(nil)
@@ -282,7 +289,6 @@ func (o *TextToSpeechRequest) HasInputAudio() bool {
 func (o *TextToSpeechRequest) SetInputAudio(v string) {
 	o.InputAudio.Set(&v)
 }
-
 // SetInputAudioNil sets the value for InputAudio to be an explicit nil
 func (o *TextToSpeechRequest) SetInputAudioNil() {
 	o.InputAudio.Set(nil)
@@ -325,7 +331,6 @@ func (o *TextToSpeechRequest) HasInputVadMode() bool {
 func (o *TextToSpeechRequest) SetInputVadMode(v string) {
 	o.InputVadMode.Set(&v)
 }
-
 // SetInputVadModeNil sets the value for InputVadMode to be an explicit nil
 func (o *TextToSpeechRequest) SetInputVadModeNil() {
 	o.InputVadMode.Set(nil)
@@ -368,7 +373,6 @@ func (o *TextToSpeechRequest) HasInputVadData() bool {
 func (o *TextToSpeechRequest) SetInputVadData(v string) {
 	o.InputVadData.Set(&v)
 }
-
 // SetInputVadDataNil sets the value for InputVadData to be an explicit nil
 func (o *TextToSpeechRequest) SetInputVadDataNil() {
 	o.InputVadData.Set(nil)
@@ -411,7 +415,6 @@ func (o *TextToSpeechRequest) HasInputEmbedding() bool {
 func (o *TextToSpeechRequest) SetInputEmbedding(v string) {
 	o.InputEmbedding.Set(&v)
 }
-
 // SetInputEmbeddingNil sets the value for InputEmbedding to be an explicit nil
 func (o *TextToSpeechRequest) SetInputEmbeddingNil() {
 	o.InputEmbedding.Set(nil)
@@ -454,7 +457,6 @@ func (o *TextToSpeechRequest) HasGenerationOptions() bool {
 func (o *TextToSpeechRequest) SetGenerationOptions(v GenerationOptions) {
 	o.GenerationOptions.Set(&v)
 }
-
 // SetGenerationOptionsNil sets the value for GenerationOptions to be an explicit nil
 func (o *TextToSpeechRequest) SetGenerationOptionsNil() {
 	o.GenerationOptions.Set(nil)
@@ -497,7 +499,6 @@ func (o *TextToSpeechRequest) HasOutputOptions() bool {
 func (o *TextToSpeechRequest) SetOutputOptions(v AudioOutputOptions) {
 	o.OutputOptions.Set(&v)
 }
-
 // SetOutputOptionsNil sets the value for OutputOptions to be an explicit nil
 func (o *TextToSpeechRequest) SetOutputOptionsNil() {
 	o.OutputOptions.Set(nil)
@@ -542,7 +543,7 @@ func (o *TextToSpeechRequest) SetPostGenerationFilters(v []VoiceConversionReques
 }
 
 func (o TextToSpeechRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -662,3 +663,5 @@ func (v *NullableTextToSpeechRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -22,8 +22,19 @@ type DetectVoiceActivityRequest struct {
 	// the name of the model
 	Model *string `json:"model,omitempty"`
 	// Binary audio data of the reference speaker for synthesizing the text, encoded in base64
-	InputAudio           *string      `json:"input_audio,omitempty"`
-	GetTimestamps        NullableBool `json:"get_timestamps,omitempty"`
+	InputAudio *string `json:"input_audio,omitempty"`
+	// whether to return the word timestamps. Check model description if supported.
+	GetTimestamps NullableBool `json:"get_timestamps,omitempty"`
+	// Speech threshold. Probabilities above this value are considered as speech.
+	Threshold NullableFloat32 `json:"threshold,omitempty"`
+	// Final speech chunks shorter than this duration (in ms) are discarded.
+	MinSpeechDurationMs NullableInt32 `json:"min_speech_duration_ms,omitempty"`
+	// Minimum silence duration (in ms) before separating speech chunks.
+	MinSilenceDurationMs NullableInt32 `json:"min_silence_duration_ms,omitempty"`
+	// Speech chunks are padded by this duration (in ms) on each side.
+	SpeechPadMs NullableInt32 `json:"speech_pad_ms,omitempty"`
+	// Whether to return timestamps in seconds (default: samples).
+	ReturnSeconds NullableBool `json:"return_seconds,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -146,7 +157,6 @@ func (o *DetectVoiceActivityRequest) HasGetTimestamps() bool {
 func (o *DetectVoiceActivityRequest) SetGetTimestamps(v bool) {
 	o.GetTimestamps.Set(&v)
 }
-
 // SetGetTimestampsNil sets the value for GetTimestamps to be an explicit nil
 func (o *DetectVoiceActivityRequest) SetGetTimestampsNil() {
 	o.GetTimestamps.Set(nil)
@@ -157,8 +167,218 @@ func (o *DetectVoiceActivityRequest) UnsetGetTimestamps() {
 	o.GetTimestamps.Unset()
 }
 
+// GetThreshold returns the Threshold field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DetectVoiceActivityRequest) GetThreshold() float32 {
+	if o == nil || IsNil(o.Threshold.Get()) {
+		var ret float32
+		return ret
+	}
+	return *o.Threshold.Get()
+}
+
+// GetThresholdOk returns a tuple with the Threshold field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DetectVoiceActivityRequest) GetThresholdOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Threshold.Get(), o.Threshold.IsSet()
+}
+
+// HasThreshold returns a boolean if a field has been set.
+func (o *DetectVoiceActivityRequest) HasThreshold() bool {
+	if o != nil && o.Threshold.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetThreshold gets a reference to the given NullableFloat32 and assigns it to the Threshold field.
+func (o *DetectVoiceActivityRequest) SetThreshold(v float32) {
+	o.Threshold.Set(&v)
+}
+// SetThresholdNil sets the value for Threshold to be an explicit nil
+func (o *DetectVoiceActivityRequest) SetThresholdNil() {
+	o.Threshold.Set(nil)
+}
+
+// UnsetThreshold ensures that no value is present for Threshold, not even an explicit nil
+func (o *DetectVoiceActivityRequest) UnsetThreshold() {
+	o.Threshold.Unset()
+}
+
+// GetMinSpeechDurationMs returns the MinSpeechDurationMs field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DetectVoiceActivityRequest) GetMinSpeechDurationMs() int32 {
+	if o == nil || IsNil(o.MinSpeechDurationMs.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MinSpeechDurationMs.Get()
+}
+
+// GetMinSpeechDurationMsOk returns a tuple with the MinSpeechDurationMs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DetectVoiceActivityRequest) GetMinSpeechDurationMsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MinSpeechDurationMs.Get(), o.MinSpeechDurationMs.IsSet()
+}
+
+// HasMinSpeechDurationMs returns a boolean if a field has been set.
+func (o *DetectVoiceActivityRequest) HasMinSpeechDurationMs() bool {
+	if o != nil && o.MinSpeechDurationMs.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMinSpeechDurationMs gets a reference to the given NullableInt32 and assigns it to the MinSpeechDurationMs field.
+func (o *DetectVoiceActivityRequest) SetMinSpeechDurationMs(v int32) {
+	o.MinSpeechDurationMs.Set(&v)
+}
+// SetMinSpeechDurationMsNil sets the value for MinSpeechDurationMs to be an explicit nil
+func (o *DetectVoiceActivityRequest) SetMinSpeechDurationMsNil() {
+	o.MinSpeechDurationMs.Set(nil)
+}
+
+// UnsetMinSpeechDurationMs ensures that no value is present for MinSpeechDurationMs, not even an explicit nil
+func (o *DetectVoiceActivityRequest) UnsetMinSpeechDurationMs() {
+	o.MinSpeechDurationMs.Unset()
+}
+
+// GetMinSilenceDurationMs returns the MinSilenceDurationMs field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DetectVoiceActivityRequest) GetMinSilenceDurationMs() int32 {
+	if o == nil || IsNil(o.MinSilenceDurationMs.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MinSilenceDurationMs.Get()
+}
+
+// GetMinSilenceDurationMsOk returns a tuple with the MinSilenceDurationMs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DetectVoiceActivityRequest) GetMinSilenceDurationMsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MinSilenceDurationMs.Get(), o.MinSilenceDurationMs.IsSet()
+}
+
+// HasMinSilenceDurationMs returns a boolean if a field has been set.
+func (o *DetectVoiceActivityRequest) HasMinSilenceDurationMs() bool {
+	if o != nil && o.MinSilenceDurationMs.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMinSilenceDurationMs gets a reference to the given NullableInt32 and assigns it to the MinSilenceDurationMs field.
+func (o *DetectVoiceActivityRequest) SetMinSilenceDurationMs(v int32) {
+	o.MinSilenceDurationMs.Set(&v)
+}
+// SetMinSilenceDurationMsNil sets the value for MinSilenceDurationMs to be an explicit nil
+func (o *DetectVoiceActivityRequest) SetMinSilenceDurationMsNil() {
+	o.MinSilenceDurationMs.Set(nil)
+}
+
+// UnsetMinSilenceDurationMs ensures that no value is present for MinSilenceDurationMs, not even an explicit nil
+func (o *DetectVoiceActivityRequest) UnsetMinSilenceDurationMs() {
+	o.MinSilenceDurationMs.Unset()
+}
+
+// GetSpeechPadMs returns the SpeechPadMs field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DetectVoiceActivityRequest) GetSpeechPadMs() int32 {
+	if o == nil || IsNil(o.SpeechPadMs.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.SpeechPadMs.Get()
+}
+
+// GetSpeechPadMsOk returns a tuple with the SpeechPadMs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DetectVoiceActivityRequest) GetSpeechPadMsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SpeechPadMs.Get(), o.SpeechPadMs.IsSet()
+}
+
+// HasSpeechPadMs returns a boolean if a field has been set.
+func (o *DetectVoiceActivityRequest) HasSpeechPadMs() bool {
+	if o != nil && o.SpeechPadMs.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSpeechPadMs gets a reference to the given NullableInt32 and assigns it to the SpeechPadMs field.
+func (o *DetectVoiceActivityRequest) SetSpeechPadMs(v int32) {
+	o.SpeechPadMs.Set(&v)
+}
+// SetSpeechPadMsNil sets the value for SpeechPadMs to be an explicit nil
+func (o *DetectVoiceActivityRequest) SetSpeechPadMsNil() {
+	o.SpeechPadMs.Set(nil)
+}
+
+// UnsetSpeechPadMs ensures that no value is present for SpeechPadMs, not even an explicit nil
+func (o *DetectVoiceActivityRequest) UnsetSpeechPadMs() {
+	o.SpeechPadMs.Unset()
+}
+
+// GetReturnSeconds returns the ReturnSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DetectVoiceActivityRequest) GetReturnSeconds() bool {
+	if o == nil || IsNil(o.ReturnSeconds.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ReturnSeconds.Get()
+}
+
+// GetReturnSecondsOk returns a tuple with the ReturnSeconds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DetectVoiceActivityRequest) GetReturnSecondsOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ReturnSeconds.Get(), o.ReturnSeconds.IsSet()
+}
+
+// HasReturnSeconds returns a boolean if a field has been set.
+func (o *DetectVoiceActivityRequest) HasReturnSeconds() bool {
+	if o != nil && o.ReturnSeconds.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReturnSeconds gets a reference to the given NullableBool and assigns it to the ReturnSeconds field.
+func (o *DetectVoiceActivityRequest) SetReturnSeconds(v bool) {
+	o.ReturnSeconds.Set(&v)
+}
+// SetReturnSecondsNil sets the value for ReturnSeconds to be an explicit nil
+func (o *DetectVoiceActivityRequest) SetReturnSecondsNil() {
+	o.ReturnSeconds.Set(nil)
+}
+
+// UnsetReturnSeconds ensures that no value is present for ReturnSeconds, not even an explicit nil
+func (o *DetectVoiceActivityRequest) UnsetReturnSeconds() {
+	o.ReturnSeconds.Unset()
+}
+
 func (o DetectVoiceActivityRequest) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -175,6 +395,21 @@ func (o DetectVoiceActivityRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.GetTimestamps.IsSet() {
 		toSerialize["get_timestamps"] = o.GetTimestamps.Get()
+	}
+	if o.Threshold.IsSet() {
+		toSerialize["threshold"] = o.Threshold.Get()
+	}
+	if o.MinSpeechDurationMs.IsSet() {
+		toSerialize["min_speech_duration_ms"] = o.MinSpeechDurationMs.Get()
+	}
+	if o.MinSilenceDurationMs.IsSet() {
+		toSerialize["min_silence_duration_ms"] = o.MinSilenceDurationMs.Get()
+	}
+	if o.SpeechPadMs.IsSet() {
+		toSerialize["speech_pad_ms"] = o.SpeechPadMs.Get()
+	}
+	if o.ReturnSeconds.IsSet() {
+		toSerialize["return_seconds"] = o.ReturnSeconds.Get()
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -201,6 +436,11 @@ func (o *DetectVoiceActivityRequest) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "model")
 		delete(additionalProperties, "input_audio")
 		delete(additionalProperties, "get_timestamps")
+		delete(additionalProperties, "threshold")
+		delete(additionalProperties, "min_speech_duration_ms")
+		delete(additionalProperties, "min_silence_duration_ms")
+		delete(additionalProperties, "speech_pad_ms")
+		delete(additionalProperties, "return_seconds")
 		o.AdditionalProperties = additionalProperties
 	}
 
@@ -242,3 +482,5 @@ func (v *NullableDetectVoiceActivityRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

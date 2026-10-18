@@ -55,7 +55,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Show Version
   /v1/audio/speech:
@@ -83,20 +83,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TextToSpeechRequest'
+              $ref: "#/components/schemas/TextToSpeechRequest"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TextToSpeechResponse'
+                $ref: "#/components/schemas/TextToSpeechResponse"
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Create Speech
   /v1/audio/speech/models:
@@ -125,13 +125,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelList'
+                $ref: "#/components/schemas/ModelList"
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Show Available Speech Models
   /v1/embed/speaker:
@@ -159,20 +159,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EmbedSpeakerRequest'
+              $ref: "#/components/schemas/EmbedSpeakerRequest"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EmbedSpeakerResponse'
+                $ref: "#/components/schemas/EmbedSpeakerResponse"
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Create Embedding
   /v1/embed/models:
@@ -201,13 +201,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelList'
+                $ref: "#/components/schemas/ModelList"
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Show Available Embedding Models
   /v1/audio/transcriptions:
@@ -235,20 +235,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SpeechTranscribeRequest'
+              $ref: "#/components/schemas/SpeechTranscribeRequest"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SpeechToTextResponse'
+                $ref: "#/components/schemas/SpeechToTextResponse"
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Create Transcription
   /v1/audio/transcriptions/models:
@@ -277,13 +277,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelList'
+                $ref: "#/components/schemas/ModelList"
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Show Available Transcription Models
   /v1/voice/convert:
@@ -312,20 +312,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/VoiceConversionRequest'
+              $ref: "#/components/schemas/VoiceConversionRequest"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VoiceConversionResponse'
+                $ref: "#/components/schemas/VoiceConversionResponse"
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Convert Voice
   /v1/voice/convert/models:
@@ -359,7 +359,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Show Available Voice Conversion Models
   /v1/audio/vad:
@@ -387,20 +387,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DetectVoiceActivityRequest'
+              $ref: "#/components/schemas/DetectVoiceActivityRequest"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DetectVoiceActivityResponse'
+                $ref: "#/components/schemas/DetectVoiceActivityResponse"
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Create Vad
   /v1/audio/vad/models:
@@ -429,22 +429,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ModelList'
+                $ref: "#/components/schemas/ModelList"
           description: Successful Response
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
           description: Validation Error
       summary: Show Available Vad Models
 components:
   schemas:
     AudioOutputOptions:
-      example:
-        sample_rate: 2
-        stream: true
-        format: format
       properties:
         format:
           nullable: true
@@ -462,9 +458,14 @@ components:
         Used to check for human speech in a provided audio file
         Depending on model selection, the caller may need to provide additional params.
       example:
-        get_timestamps: true
-        input_audio: input_audio
         model: ""
+        input_audio: input_audio
+        get_timestamps: true
+        threshold: 0.8008281904610115
+        min_speech_duration_ms: 6
+        min_silence_duration_ms: 1
+        speech_pad_ms: 5
+        return_seconds: true
       properties:
         model:
           default: ""
@@ -477,6 +478,30 @@ components:
           title: Input Audio
           type: string
         get_timestamps:
+          description: whether to return the word timestamps. Check model description
+            if supported.
+          nullable: true
+          type: boolean
+        threshold:
+          description: Speech threshold. Probabilities above this value are considered
+            as speech.
+          nullable: true
+          type: number
+        min_speech_duration_ms:
+          description: Final speech chunks shorter than this duration (in ms) are
+            discarded.
+          nullable: true
+          type: integer
+        min_silence_duration_ms:
+          description: Minimum silence duration (in ms) before separating speech chunks.
+          nullable: true
+          type: integer
+        speech_pad_ms:
+          description: Speech chunks are padded by this duration (in ms) on each side.
+          nullable: true
+          type: integer
+        return_seconds:
+          description: "Whether to return timestamps in seconds (default: samples)."
           nullable: true
           type: boolean
       title: DetectVoiceActivityRequest
@@ -485,13 +510,13 @@ components:
         DetectVoiceActivityResponse
         Result text determined from audio and optional language tag
       example:
-        speech_activity: false
+        id: id
+        model: ""
         created: 0
+        speech_activity: false
         timestamps:
         - "{}"
         - "{}"
-        model: ""
-        id: id
       properties:
         id:
           title: Id
@@ -510,10 +535,12 @@ components:
           title: Speech Activity
           type: boolean
         timestamps:
+          description: list of the detected timestamps
           items:
             type: object
           nullable: true
           type: array
+          default: null
       title: DetectVoiceActivityResponse
     EmbedSpeakerRequest:
       description: |-
@@ -522,8 +549,8 @@ components:
         Voice Conversion functionality.
         Please refer to the documentation whether an embedding is compatible between different models.
       example:
-        input_audio: input_audio
         model: ""
+        input_audio: input_audio
       properties:
         model:
           default: ""
@@ -540,10 +567,10 @@ components:
         EmbedSpeakerResult
         Result Speaker Embedding
       example:
-        data: data
-        created: 0
-        model: ""
         id: id
+        model: ""
+        created: 0
+        data: data
       properties:
         id:
           title: Id
@@ -563,12 +590,6 @@ components:
           type: string
       title: EmbedSpeakerResponse
     GenerationOptions:
-      example:
-        seed: 0
-        style: 6
-        pitch: 5.962133916683182
-        speed: 1.4658129805029452
-        energy: 5.637376656633329
       properties:
         seed:
           nullable: true
@@ -589,24 +610,27 @@ components:
     HTTPValidationError:
       example:
         detail:
-        - msg: msg
-          loc:
-          - ValidationError_loc_inner
-          - ValidationError_loc_inner
+        - loc:
+          - Location_inner
+          - Location_inner
+          msg: msg
           type: type
-        - msg: msg
-          loc:
-          - ValidationError_loc_inner
-          - ValidationError_loc_inner
+        - loc:
+          - Location_inner
+          - Location_inner
+          msg: msg
           type: type
       properties:
         detail:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: "#/components/schemas/ValidationError"
+          title: Detail
           type: array
+          default: null
       title: HTTPValidationError
     LanguageOptions:
       example:
+        language: default
         voices:
         - voice: default
           styles:
@@ -616,7 +640,6 @@ components:
           styles:
           - styles
           - styles
-        language: default
       properties:
         language:
           default: default
@@ -624,39 +647,40 @@ components:
           type: string
         voices:
           items:
-            $ref: '#/components/schemas/VoiceOptions'
+            $ref: "#/components/schemas/VoiceOptions"
           nullable: true
           type: array
+          default: null
       title: LanguageOptions
     ModelCard:
       example:
-        parent: parent
-        languages:
-        - voices:
-          - voice: default
-            styles:
-            - styles
-            - styles
-          - voice: default
-            styles:
-            - styles
-            - styles
-          language: default
-        - voices:
-          - voice: default
-            styles:
-            - styles
-            - styles
-          - voice: default
-            styles:
-            - styles
-            - styles
-          language: default
-        created: 0
-        root: root
-        owned_by: harmony-ai-solutions
         id: id
         object: model
+        created: 0
+        owned_by: harmony-ai-solutions
+        languages:
+        - language: default
+          voices:
+          - voice: default
+            styles:
+            - styles
+            - styles
+          - voice: default
+            styles:
+            - styles
+            - styles
+        - language: default
+          voices:
+          - voice: default
+            styles:
+            - styles
+            - styles
+          - voice: default
+            styles:
+            - styles
+            - styles
+        root: root
+        parent: parent
       properties:
         id:
           title: Id
@@ -674,9 +698,10 @@ components:
           type: string
         languages:
           items:
-            $ref: '#/components/schemas/LanguageOptions'
+            $ref: "#/components/schemas/LanguageOptions"
           nullable: true
           type: array
+          default: null
         root:
           nullable: true
           type: string
@@ -688,62 +713,62 @@ components:
       title: ModelCard
     ModelList:
       example:
-        data:
-        - parent: parent
-          languages:
-          - voices:
-            - voice: default
-              styles:
-              - styles
-              - styles
-            - voice: default
-              styles:
-              - styles
-              - styles
-            language: default
-          - voices:
-            - voice: default
-              styles:
-              - styles
-              - styles
-            - voice: default
-              styles:
-              - styles
-              - styles
-            language: default
-          created: 0
-          root: root
-          owned_by: harmony-ai-solutions
-          id: id
-          object: model
-        - parent: parent
-          languages:
-          - voices:
-            - voice: default
-              styles:
-              - styles
-              - styles
-            - voice: default
-              styles:
-              - styles
-              - styles
-            language: default
-          - voices:
-            - voice: default
-              styles:
-              - styles
-              - styles
-            - voice: default
-              styles:
-              - styles
-              - styles
-            language: default
-          created: 0
-          root: root
-          owned_by: harmony-ai-solutions
-          id: id
-          object: model
         object: list
+        data:
+        - id: id
+          object: model
+          created: 0
+          owned_by: harmony-ai-solutions
+          languages:
+          - language: default
+            voices:
+            - voice: default
+              styles:
+              - styles
+              - styles
+            - voice: default
+              styles:
+              - styles
+              - styles
+          - language: default
+            voices:
+            - voice: default
+              styles:
+              - styles
+              - styles
+            - voice: default
+              styles:
+              - styles
+              - styles
+          root: root
+          parent: parent
+        - id: id
+          object: model
+          created: 0
+          owned_by: harmony-ai-solutions
+          languages:
+          - language: default
+            voices:
+            - voice: default
+              styles:
+              - styles
+              - styles
+            - voice: default
+              styles:
+              - styles
+              - styles
+          - language: default
+            voices:
+            - voice: default
+              styles:
+              - styles
+              - styles
+            - voice: default
+              styles:
+              - styles
+              - styles
+          root: root
+          parent: parent
       properties:
         object:
           default: list
@@ -751,22 +776,24 @@ components:
           type: string
         data:
           items:
-            $ref: '#/components/schemas/ModelCard'
+            $ref: "#/components/schemas/ModelCard"
+          title: Data
           type: array
+          default: null
       title: ModelList
     SpeechToTextResponse:
       description: |-
         SpeechToTextResponse
         Result text determined from audio and optional language tag
       example:
+        id: id
+        model: ""
         created: 0
+        text: ""
+        language: language
         timestamps:
         - "{}"
         - "{}"
-        model: ""
-        language: language
-        id: id
-        text: ""
       properties:
         id:
           title: Id
@@ -785,13 +812,16 @@ components:
           title: Text
           type: string
         language:
+          description: tag of the detected language
           nullable: true
           type: string
         timestamps:
+          description: list of the detected timestamps
           items:
             type: object
           nullable: true
           type: array
+          default: null
       title: SpeechToTextResponse
     SpeechTranscribeRequest:
       description: |-
@@ -800,10 +830,10 @@ components:
         Depending on model selection, the caller may need to provide additional params.
         Based on OpenAI STT API; extended for Harmony Speech Engine features.
       example:
-        get_timestamps: true
-        get_language: true
-        input_audio: input_audio
         model: ""
+        input_audio: input_audio
+        get_language: true
+        get_timestamps: true
       properties:
         model:
           default: ""
@@ -816,9 +846,13 @@ components:
           title: Input Audio
           type: string
         get_language:
+          description: whether to return the source language tag. Check model description
+            if supported.
           nullable: true
           type: boolean
         get_timestamps:
+          description: whether to return the word timestamps. Check model description
+            if supported.
           nullable: true
           type: boolean
       title: SpeechTranscribeRequest
@@ -829,54 +863,30 @@ components:
         Depending on model selection, the caller may need to provide additional params.
         Based on OpenAI TTS API; extended for Harmony Speech Engine features.
       example:
-        mode: ""
-        voice: voice
+        model: ""
         input: ""
-        input_vad_data: input_vad_data
-        output_options:
-          sample_rate: 2
-          stream: true
-          format: format
+        mode: ""
+        language: language
+        voice: voice
         input_audio: input_audio
         input_vad_mode: input_vad_mode
-        generation_options:
-          seed: 0
-          style: 6
-          pitch: 5.962133916683182
-          speed: 1.4658129805029452
-          energy: 5.637376656633329
-        model: ""
-        language: language
-        post_generation_filters:
-        - target_embedding: target_embedding
-          output_options:
-            sample_rate: 2
-            stream: true
-            format: format
-          source_audio: source_audio
-          generation_options:
-            seed: 0
-            style: 6
-            pitch: 5.962133916683182
-            speed: 1.4658129805029452
-            energy: 5.637376656633329
-          model: ""
-          target_audio: target_audio
-        - target_embedding: target_embedding
-          output_options:
-            sample_rate: 2
-            stream: true
-            format: format
-          source_audio: source_audio
-          generation_options:
-            seed: 0
-            style: 6
-            pitch: 5.962133916683182
-            speed: 1.4658129805029452
-            energy: 5.637376656633329
-          model: ""
-          target_audio: target_audio
+        input_vad_data: input_vad_data
         input_embedding: input_embedding
+        generation_options: ""
+        output_options: ""
+        post_generation_filters:
+        - model: ""
+          source_audio: source_audio
+          target_audio: target_audio
+          target_embedding: target_embedding
+          generation_options: ""
+          output_options: ""
+        - model: ""
+          source_audio: source_audio
+          target_audio: target_audio
+          target_embedding: target_embedding
+          generation_options: ""
+          output_options: ""
       properties:
         model:
           default: ""
@@ -894,42 +904,64 @@ components:
           title: Mode
           type: string
         language:
+          description: language to synthesize. Only if the model supports language
+            IDs. Please refer to the model's documentation for which values are availiable.
           nullable: true
           type: string
         voice:
+          description: ID of the voice to synthesize. Only if the model supports voice
+            IDs. Please refer to the model's documentation for which values are availiable.
           nullable: true
           type: string
         input_audio:
+          description: "Binary audio data of the reference speaker for synthesizing\
+            \ the text, encoded in base64"
           nullable: true
           type: string
         input_vad_mode:
+          description: VAD mode to use in case the provided TTS or VC framework requires
+            VAD information for processing
           nullable: true
           type: string
         input_vad_data:
+          description: result data from VAD step to be processed in follow-up TTS
+            or VC steps
           nullable: true
           type: string
         input_embedding:
+          description: "Binary embedding of the reference speaker for synthesizing\
+            \ the text, encoded in base64. Faster than providing a target audio file"
           nullable: true
           type: string
         generation_options:
-          $ref: '#/components/schemas/GenerationOptions'
+          allOf:
+          - $ref: "#/components/schemas/GenerationOptions"
+          description: "Options for generating a speech request, see documentation\
+            \ for possible values"
+          nullable: true
         output_options:
-          $ref: '#/components/schemas/AudioOutputOptions'
+          allOf:
+          - $ref: "#/components/schemas/AudioOutputOptions"
+          description: "Options for returning the generated audio, see documentation\
+            \ for possible values"
+          nullable: true
         post_generation_filters:
+          description: List of Post-Generation filters to apply to the generated audio.
           items:
-            $ref: '#/components/schemas/VoiceConversionRequest'
+            $ref: "#/components/schemas/VoiceConversionRequest"
           nullable: true
           type: array
+          default: null
       title: TextToSpeechRequest
     TextToSpeechResponse:
       description: |-
         TextToSpeechResponse
         Extends AudioDataResponse with a request specific ID
       example:
-        data: data
-        created: 0
-        model: ""
         id: id
+        model: ""
+        created: 0
+        data: data
       properties:
         id:
           title: Id
@@ -949,16 +981,18 @@ components:
       title: TextToSpeechResponse
     ValidationError:
       example:
-        msg: msg
         loc:
-        - ValidationError_loc_inner
-        - ValidationError_loc_inner
+        - Location_inner
+        - Location_inner
+        msg: msg
         type: type
       properties:
         loc:
           items:
-            $ref: '#/components/schemas/ValidationError_loc_inner'
+            $ref: "#/components/schemas/Location_inner"
+          title: Location
           type: array
+          default: null
         msg:
           title: Message
           type: string
@@ -976,20 +1010,12 @@ components:
         Used to convert the tone or nature of a voice in a specific way.
         Depending on model selection, the caller may need to provide additional params.
       example:
-        target_embedding: target_embedding
-        output_options:
-          sample_rate: 2
-          stream: true
-          format: format
-        source_audio: source_audio
-        generation_options:
-          seed: 0
-          style: 6
-          pitch: 5.962133916683182
-          speed: 1.4658129805029452
-          energy: 5.637376656633329
         model: ""
+        source_audio: source_audio
         target_audio: target_audio
+        target_embedding: target_embedding
+        generation_options: ""
+        output_options: ""
       properties:
         model:
           default: ""
@@ -1001,25 +1027,37 @@ components:
           title: Source Audio
           type: string
         target_audio:
+          description: "Binary audio data of the reference speaker for converting\
+            \ the source, encoded in base64"
           nullable: true
           type: string
         target_embedding:
+          description: "Binary embedding of the reference speaker for converting the\
+            \ source, encoded in base64. Faster than providing a target audio file"
           nullable: true
           type: string
         generation_options:
-          $ref: '#/components/schemas/GenerationOptions'
+          allOf:
+          - $ref: "#/components/schemas/GenerationOptions"
+          description: "Options for generating a speech request, see documentation\
+            \ for possible values"
+          nullable: true
         output_options:
-          $ref: '#/components/schemas/AudioOutputOptions'
+          allOf:
+          - $ref: "#/components/schemas/AudioOutputOptions"
+          description: "Options for returning the generated audio, see documentation\
+            \ for possible values"
+          nullable: true
       title: VoiceConversionRequest
     VoiceConversionResponse:
       description: |-
         VoiceConversionResponse
         Extends AudioDataResponse with a request specific ID
       example:
-        data: data
-        created: 0
-        model: ""
         id: id
+        model: ""
+        created: 0
+        data: data
       properties:
         id:
           title: Id
@@ -1053,8 +1091,9 @@ components:
             type: string
           nullable: true
           type: array
+          default: null
       title: VoiceOptions
-    ValidationError_loc_inner:
+    Location_inner:
       anyOf:
       - type: string
       - type: integer

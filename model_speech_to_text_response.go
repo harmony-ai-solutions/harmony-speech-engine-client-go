@@ -25,7 +25,9 @@ type SpeechToTextResponse struct {
 	Created *int32 `json:"created,omitempty"`
 	// text retrieved from the input audio
 	Text *string `json:"text,omitempty"`
+	// tag of the detected language
 	Language NullableString `json:"language,omitempty"`
+	// list of the detected timestamps
 	Timestamps []map[string]interface{} `json:"timestamps,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

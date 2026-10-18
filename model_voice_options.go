@@ -19,8 +19,8 @@ var _ MappedNullable = &VoiceOptions{}
 
 // VoiceOptions struct for VoiceOptions
 type VoiceOptions struct {
-	Voice                *string  `json:"voice,omitempty"`
-	Styles               []string `json:"styles,omitempty"`
+	Voice *string `json:"voice,omitempty"`
+	Styles []string `json:"styles,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -113,7 +113,7 @@ func (o *VoiceOptions) SetStyles(v []string) {
 }
 
 func (o VoiceOptions) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -193,3 +193,5 @@ func (v *NullableVoiceOptions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

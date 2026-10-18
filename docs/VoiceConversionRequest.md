@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Model** | Pointer to **string** | the name of the model | [optional] [default to ""]
 **SourceAudio** | Pointer to **string** | Binary audio data to be processed, encoded in base64 | [optional] 
-**TargetAudio** | Pointer to **NullableString** |  | [optional] 
-**TargetEmbedding** | Pointer to **NullableString** |  | [optional] 
-**GenerationOptions** | Pointer to [**NullableGenerationOptions**](GenerationOptions.md) |  | [optional] 
-**OutputOptions** | Pointer to [**NullableAudioOutputOptions**](AudioOutputOptions.md) |  | [optional] 
+**TargetAudio** | Pointer to **NullableString** | Binary audio data of the reference speaker for converting the source, encoded in base64 | [optional] 
+**TargetEmbedding** | Pointer to **NullableString** | Binary embedding of the reference speaker for converting the source, encoded in base64. Faster than providing a target audio file | [optional] 
+**GenerationOptions** | Pointer to [**NullableGenerationOptions**](GenerationOptions.md) | Options for generating a speech request, see documentation for possible values | [optional] 
+**OutputOptions** | Pointer to [**NullableAudioOutputOptions**](AudioOutputOptions.md) | Options for returning the generated audio, see documentation for possible values | [optional] 
 
 ## Methods
 

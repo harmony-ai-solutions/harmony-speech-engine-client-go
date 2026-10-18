@@ -20,13 +20,13 @@ var _ MappedNullable = &ModelCard{}
 
 // ModelCard struct for ModelCard
 type ModelCard struct {
-	Id                   string            `json:"id"`
-	Object               *string           `json:"object,omitempty"`
-	Created              *int32            `json:"created,omitempty"`
-	OwnedBy              *string           `json:"owned_by,omitempty"`
-	Languages            []LanguageOptions `json:"languages,omitempty"`
-	Root                 NullableString    `json:"root,omitempty"`
-	Parent               NullableString    `json:"parent,omitempty"`
+	Id string `json:"id"`
+	Object *string `json:"object,omitempty"`
+	Created *int32 `json:"created,omitempty"`
+	OwnedBy *string `json:"owned_by,omitempty"`
+	Languages []LanguageOptions `json:"languages,omitempty"`
+	Root NullableString `json:"root,omitempty"`
+	Parent NullableString `json:"parent,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -243,7 +243,6 @@ func (o *ModelCard) HasRoot() bool {
 func (o *ModelCard) SetRoot(v string) {
 	o.Root.Set(&v)
 }
-
 // SetRootNil sets the value for Root to be an explicit nil
 func (o *ModelCard) SetRootNil() {
 	o.Root.Set(nil)
@@ -286,7 +285,6 @@ func (o *ModelCard) HasParent() bool {
 func (o *ModelCard) SetParent(v string) {
 	o.Parent.Set(&v)
 }
-
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *ModelCard) SetParentNil() {
 	o.Parent.Set(nil)
@@ -298,7 +296,7 @@ func (o *ModelCard) UnsetParent() {
 }
 
 func (o ModelCard) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -347,10 +345,10 @@ func (o *ModelCard) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err
+		return err;
 	}
 
-	for _, requiredProperty := range requiredProperties {
+	for _, requiredProperty := range(requiredProperties) {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -417,3 +415,5 @@ func (v *NullableModelCard) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+

@@ -23,7 +23,9 @@ type SpeechTranscribeRequest struct {
 	Model *string `json:"model,omitempty"`
 	// Binary audio data of the reference speaker for synthesizing the text, encoded in base64
 	InputAudio *string `json:"input_audio,omitempty"`
+	// whether to return the source language tag. Check model description if supported.
 	GetLanguage NullableBool `json:"get_language,omitempty"`
+	// whether to return the word timestamps. Check model description if supported.
 	GetTimestamps NullableBool `json:"get_timestamps,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

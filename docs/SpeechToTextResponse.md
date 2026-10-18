@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Model** | Pointer to **string** | the name of the model | [optional] [default to ""]
 **Created** | Pointer to **int32** |  | [optional] 
 **Text** | Pointer to **string** | text retrieved from the input audio | [optional] [default to ""]
-**Language** | Pointer to **NullableString** |  | [optional] 
-**Timestamps** | Pointer to **[]map[string]interface{}** |  | [optional] 
+**Language** | Pointer to **NullableString** | tag of the detected language | [optional] 
+**Timestamps** | Pointer to **[]map[string]interface{}** | list of the detected timestamps | [optional] 
 
 ## Methods
 

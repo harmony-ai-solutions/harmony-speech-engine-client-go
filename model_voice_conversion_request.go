@@ -23,9 +23,13 @@ type VoiceConversionRequest struct {
 	Model *string `json:"model,omitempty"`
 	// Binary audio data to be processed, encoded in base64
 	SourceAudio *string `json:"source_audio,omitempty"`
+	// Binary audio data of the reference speaker for converting the source, encoded in base64
 	TargetAudio NullableString `json:"target_audio,omitempty"`
+	// Binary embedding of the reference speaker for converting the source, encoded in base64. Faster than providing a target audio file
 	TargetEmbedding NullableString `json:"target_embedding,omitempty"`
+	// Options for generating a speech request, see documentation for possible values
 	GenerationOptions NullableGenerationOptions `json:"generation_options,omitempty"`
+	// Options for returning the generated audio, see documentation for possible values
 	OutputOptions NullableAudioOutputOptions `json:"output_options,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

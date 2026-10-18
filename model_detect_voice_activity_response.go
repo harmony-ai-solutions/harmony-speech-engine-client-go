@@ -21,11 +21,12 @@ var _ MappedNullable = &DetectVoiceActivityResponse{}
 type DetectVoiceActivityResponse struct {
 	Id *string `json:"id,omitempty"`
 	// the name of the model
-	Model   *string `json:"model,omitempty"`
-	Created *int32  `json:"created,omitempty"`
+	Model *string `json:"model,omitempty"`
+	Created *int32 `json:"created,omitempty"`
 	// whether speech activity was detected
-	SpeechActivity       *bool                    `json:"speech_activity,omitempty"`
-	Timestamps           []map[string]interface{} `json:"timestamps,omitempty"`
+	SpeechActivity *bool `json:"speech_activity,omitempty"`
+	// list of the detected timestamps
+	Timestamps []map[string]interface{} `json:"timestamps,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -218,7 +219,7 @@ func (o *DetectVoiceActivityResponse) SetTimestamps(v []map[string]interface{}) 
 }
 
 func (o DetectVoiceActivityResponse) MarshalJSON() ([]byte, error) {
-	toSerialize, err := o.ToMap()
+	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -310,3 +311,5 @@ func (v *NullableDetectVoiceActivityResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
+
+
